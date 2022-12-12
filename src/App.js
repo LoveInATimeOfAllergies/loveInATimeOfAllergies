@@ -10,23 +10,54 @@ function App() {
   const database = getDatabase(app);
   const dbRef = ref(database);
   // Setting up states
-  const [nameInput, setNameInput] = useState('')
+  const [partyInput, setPartyInput] = useState('');
+  const [nameInput, setNameInput] = useState('');
   const [dairyFree, setDairyFree] = useState(false);
   const [eggFree, setEggFree] = useState(false);
-  const [glutenFree, setGlutenFree] = useState(false)
+  const [glutenFree, setGlutenFree] = useState(false);
+  //
+  const [guest, setGuest] = useState([])
+
+  useEffect(() => {
+    onValue(dbRef, (response) => {
+      const partyData = response.val();
+      const dataArray = [];
+
+      for (let key in partyData) {
+        dataArray.push({
+          key: key,
+          name: partyData[key].name,
+          dairyFree: partyData[key].dairyFree,
+          eggFree: partyData[key].eggFree,
+          glutenFree: partyData[key].glutenFree,
+        });
+      }
+      setGuest(dataArray);
+    });
+  }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const userProfile = {
-      name: nameInput, 
-      dairyFree: (dairyFree ? 'dairy-free' : null),
-      eggFree: (eggFree ? 'egg-free' : null),
-      glutenFree: (glutenFree ? 'gluten-free' : null)
+    // const userProfile = {
+    //   name: nameInput, 
+    //   dairyFree: (dairyFree ? 'dairy-free' : null),
+    //   eggFree: (eggFree ? 'egg-free' : null),
+    //   glutenFree: (glutenFree ? 'gluten-free' : null)
       // 'dairy-free': dairyFree,
       // 'egg-free': eggFree,
       // 'gluten-free': glutenFree
-    }
-    push(dbRef, userProfile)
+    // }
+    const childNodeRef = ref(database, `/${partyInput}`);
+    const newUser = {
+      user: nameInput,
+      dairyFree: (dairyFree ? 'dairy-free' : null),
+      eggFree: (eggFree ? 'egg-free' : null),
+      glutenFree: (glutenFree ? 'gluten-free' : null)
+      // allergy: allergyInput,
+    };
+    push(childNodeRef, newUser);
+
+    // push(dbRef, userProfile)
     setNameInput('');
     // Specifically for the checkbox checkmarks to go away
     document.getElementById('dairyFree').checked = false;
@@ -38,10 +69,26 @@ function App() {
     setGlutenFree(false);
   }
 
+  const handleInputChangeParty = (event) => {
+    setPartyInput(event.target.value);
+  };
+  
+  
+
   return (
     <div className="App">
       <Header />
-      {/* Form component */}
+      {/* Party submit */}
+      <form action="submit">
+        <label htmlFor="newParty">Add Party </label>
+        <input
+          type="text"
+          id="party"
+          onChange={handleInputChangeParty}
+          value={partyInput}
+        />
+      </form>
+      {/* Guest name and dietary restrictions submit */}
       <form onSubmit={handleSubmit}>
         <label htmlFor="nameField">Guest name:</label>
         <input type="text" id="nameField" value={nameInput} onChange={(e) => setNameInput(e.target.value)} />
@@ -77,7 +124,15 @@ function App() {
       {/* Only thing to consider is how to push the data up for multiple guests going to the same party */}
 
       <section>
-
+        <ul>
+          {guest.map((guestObject) => {
+            return (
+              <li key={guestObject.key}>
+                <p>{guestObject.name} | {guestObject.dairyFree} | {guestObject.eggFree} | {guestObject.glutenFree}</p>
+              </li>
+            )
+          })}
+        </ul>
       </section>
       <Footer />
     </div>
