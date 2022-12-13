@@ -18,7 +18,8 @@ function App() {
   //
   const [guest, setGuest] = useState([]);
   const [partyDataList, setPartyDataList] = useState([]);
-  const [userChoice, setUserChoice] = useState('');
+  const [userChoice, setUserChoice] = useState('');  
+  // const [allergyArray, setAllergyArray] = useState([]);  
 
   useEffect(() => {
     onValue(dbRef, (response) => {
@@ -30,7 +31,6 @@ function App() {
       for (let key in partyData) {
         //grabs the nested/second object
         const nested = partyData[key];
-
         for (let newKey in nested) {
           dataArray.push({
             partyKey: key,
@@ -72,9 +72,28 @@ function App() {
     setEggFree(false);
     setGlutenFree(false);
   }
+
   const handleInputChangeParty = (event) => {
     setPartyInput(event.target.value);
-  };
+  }
+
+  const callAPI = (event) => {
+    event.preventDefault();
+
+    // Grab all allergies from guest list and put into allergyArray
+    const allergyArray = [];
+    guest.map((allergyObject) => {
+      return (
+        allergyArray.push(allergyObject.newObject.dairyFree, allergyObject.newObject.eggFree, allergyObject.newObject.glutenFree)
+      )
+    })
+
+    // Filter allergyArray for unique values and undefined
+    let unique = [...new Set(allergyArray)];
+    const filtered = unique.filter(restriction => restriction !== undefined);
+    console.log(filtered); 
+  }
+
   return (
     <div className="App">
       <Header />
@@ -104,7 +123,6 @@ function App() {
         <input type="checkbox" name="allergies" id="glutenFree" value={glutenFree} onChange={(e) => setGlutenFree(e.target.checked)} />
 
         <button>Submit</button>
-        <button>Show me recipes</button>
       </form>
      
       {/* Party Profile First */}
@@ -116,7 +134,7 @@ function App() {
       {/* Only thing to consider is how to push the data up for multiple guests going to the same party */}
 
       {/* Form */}
-      <form action="">
+      <form onSubmit={callAPI}>
         <label htmlFor="partyChoice">Select Here:</label>
         {/* onChange, store user choice in stateful variable to use in if statement */}
         <select name="partyChoice" id="partyChoice" onChange={(e) => {setUserChoice(e.target.value)}} value={userChoice}>
@@ -128,6 +146,7 @@ function App() {
           })
         }
         </select>
+        <button>Show me recipes</button>
       </form>
 
       {/* Party selector */}
