@@ -16,28 +16,35 @@ function App() {
   const [eggFree, setEggFree] = useState(false);
   const [glutenFree, setGlutenFree] = useState(false);
   //
-  const [guest, setGuest] = useState([])
+  const [guest, setGuest] = useState([]);
+  const [partyDataList, setPartyDataList] = useState([]);
 
   useEffect(() => {
     onValue(dbRef, (response) => {
       const partyData = response.val();
       const dataArray = [];
+      const partyDataArray = Object.keys(partyData);
 
       // grabs the first object
       for (let key in partyData) {
         //grabs the nested/second object
         const nested = partyData[key];
+
         for (let newKey in nested) {
           dataArray.push({
-            key: newKey,
+            partyKey: key,
+            newObject:{
+              key: newKey,
             user: nested[newKey].user,
             dairyFree: nested[newKey].dairyFree,
             eggFree: nested[newKey].eggFree,
             glutenFree: nested[newKey].glutenFree,
+            }
           });
         }
       }
       setGuest(dataArray);
+      setPartyDataList(partyDataArray);
     });
   }, [])
 
@@ -64,12 +71,9 @@ function App() {
     setEggFree(false);
     setGlutenFree(false);
   }
-
   const handleInputChangeParty = (event) => {
     setPartyInput(event.target.value);
   };
-
- 
   return (
     <div className="App">
       <Header />
@@ -100,16 +104,7 @@ function App() {
         <button>Submit</button>
         <button>Show me recipes</button>
       </form>
-      {/* Guest Profile First */}
-      {/* Another component for the API call/party grouping */}
-      {/* Form with a dropdown and a submit button. The dropdown is populated from firebase objects' 'name' property.  */}
-      {/* User would select an option and hit submit */}
-      {/* On submit, that name gets added to a list / array - the firebase object with the name and the allergies gets pushed into an empty array */}
-      {/* Another button for when they're done adding all people ??? */}
-      {/* Loop through the array to get the restrictions */}
-      {/* Do whatever the process will be to get those into the api endpoint, call api, display data */}
-      {/* The party doesn't really become a property of the object that is stored in firebase - unless we go for stretch goal gallery */}
-
+     
       {/* Party Profile First */}
       {/* We already have the party as the node of all the data */}
       {/* No need for a dropdown because all of the guests entered are already associated with this party */}
@@ -123,16 +118,25 @@ function App() {
           {guest.map((guestObject) => {
             return (
               <li key={guestObject.key}>
-                <p>{guestObject.user} | {guestObject.dairyFree} | {guestObject.eggFree} | {guestObject.glutenFree}</p>
+                <p> {guestObject.partyKey}  | {guestObject.newObject.user} | {guestObject.newObject.dairyFree} | {guestObject.newObject.eggFree} | {guestObject.newObject.glutenFree}</p>
               </li>
             )
           })}
         </ul>
       </section>
+      <form action="">
+          <label htmlFor="partyChoice">Select Here:</label>
+          <select name="partyChoice" id="partyChoice">
+            {partyDataList.map((partyNumbers) =>{
+              return(
+            <option >{partyNumbers}</option>
+              )
+          })}
+          </select>
+        </form>
       <Footer />
     </div>
   );
 }
 
 export default App;
-
