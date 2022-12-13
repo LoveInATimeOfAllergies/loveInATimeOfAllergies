@@ -77,21 +77,36 @@ function App() {
     setPartyInput(event.target.value);
   }
 
+  // API Call Portion
   const callAPI = (event) => {
     event.preventDefault();
 
     // Grab all allergies from guest list and put into allergyArray
     const allergyArray = [];
     guest.map((allergyObject) => {
-      return (
-        allergyArray.push(allergyObject.newObject.dairyFree, allergyObject.newObject.eggFree, allergyObject.newObject.glutenFree)
-      )
+      if (allergyObject.partyKey === userChoice) {
+        return (
+          allergyArray.push(allergyObject.newObject.dairyFree, allergyObject.newObject.eggFree, allergyObject.newObject.glutenFree)
+        )
+      }
     })
 
     // Filter allergyArray for unique values and undefined
     let unique = [...new Set(allergyArray)];
     const filtered = unique.filter(restriction => restriction !== undefined);
     console.log(filtered); 
+    const merged = filtered.join('&health=');
+    console.log(merged);
+
+    const url = new URL(`https://api.edamam.com/api/recipes/v2?type=public&app_id=fda19781&app_key=80eb03af50e7092c886828535d566860&mealType=dinner&health=${merged}`);
+    
+    console.log(url);
+    const getRecipes = async () => {
+        const recipeData = await fetch(url);
+        const recipe = await recipeData.json();
+        console.log(recipe.hits);
+    }
+    getRecipes();
   }
 
   return (
@@ -138,8 +153,9 @@ function App() {
         <label htmlFor="partyChoice">Select Here:</label>
         {/* onChange, store user choice in stateful variable to use in if statement */}
         <select name="partyChoice" id="partyChoice" onChange={(e) => {setUserChoice(e.target.value)}} value={userChoice}>
+          <option value="" disabled>Choose a party</option>
         {
-          partyDataList.map((partyNumbers) =>{
+          partyDataList.map((partyNumbers) => {
             return(
               <option value={partyNumbers}>{partyNumbers}</option>
             )
