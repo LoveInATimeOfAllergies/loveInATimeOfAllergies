@@ -23,14 +23,19 @@ function App() {
       const partyData = response.val();
       const dataArray = [];
 
+      // grabs the first object
       for (let key in partyData) {
-        dataArray.push({
-          key: key,
-          name: partyData[key].name,
-          dairyFree: partyData[key].dairyFree,
-          eggFree: partyData[key].eggFree,
-          glutenFree: partyData[key].glutenFree,
-        });
+        //grabs the nested/second object
+        const nested = partyData[key];
+        for (let newKey in nested) {
+          dataArray.push({
+            key: newKey,
+            user: nested[newKey].user,
+            dairyFree: nested[newKey].dairyFree,
+            eggFree: nested[newKey].eggFree,
+            glutenFree: nested[newKey].glutenFree,
+          });
+        }
       }
       setGuest(dataArray);
     });
@@ -38,15 +43,6 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const userProfile = {
-    //   name: nameInput, 
-    //   dairyFree: (dairyFree ? 'dairy-free' : null),
-    //   eggFree: (eggFree ? 'egg-free' : null),
-    //   glutenFree: (glutenFree ? 'gluten-free' : null)
-      // 'dairy-free': dairyFree,
-      // 'egg-free': eggFree,
-      // 'gluten-free': glutenFree
-    // }
     const childNodeRef = ref(database, `/${partyInput}`);
     const newUser = {
       user: nameInput,
@@ -72,9 +68,8 @@ function App() {
   const handleInputChangeParty = (event) => {
     setPartyInput(event.target.value);
   };
-  
-  
 
+ 
   return (
     <div className="App">
       <Header />
@@ -128,7 +123,7 @@ function App() {
           {guest.map((guestObject) => {
             return (
               <li key={guestObject.key}>
-                <p>{guestObject.name} | {guestObject.dairyFree} | {guestObject.eggFree} | {guestObject.glutenFree}</p>
+                <p>{guestObject.user} | {guestObject.dairyFree} | {guestObject.eggFree} | {guestObject.glutenFree}</p>
               </li>
             )
           })}
@@ -140,3 +135,4 @@ function App() {
 }
 
 export default App;
+
