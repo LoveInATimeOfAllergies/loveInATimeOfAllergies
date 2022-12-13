@@ -18,6 +18,7 @@ function App() {
   //
   const [guest, setGuest] = useState([]);
   const [partyDataList, setPartyDataList] = useState([]);
+  const [userChoice, setUserChoice] = useState('');
 
   useEffect(() => {
     onValue(dbRef, (response) => {
@@ -80,6 +81,7 @@ function App() {
       {/* Party submit */}
       <form action="submit">
         <label htmlFor="newParty">Add Party </label>
+        {/* CSS text-transform: capitalize? */}
         <input
           type="text"
           id="party"
@@ -113,27 +115,40 @@ function App() {
       {/* Easier overall - but users have to be entered multiple times if they go to multiple parties */}
       {/* Only thing to consider is how to push the data up for multiple guests going to the same party */}
 
+      {/* Form */}
+      <form action="">
+        <label htmlFor="partyChoice">Select Here:</label>
+        {/* onChange, store user choice in stateful variable to use in if statement */}
+        <select name="partyChoice" id="partyChoice" onChange={(e) => {setUserChoice(e.target.value)}} value={userChoice}>
+        {
+          partyDataList.map((partyNumbers) =>{
+            return(
+              <option value={partyNumbers}>{partyNumbers}</option>
+            )
+          })
+        }
+        </select>
+      </form>
+
+      {/* Party selector */}
       <section>
         <ul>
-          {guest.map((guestObject) => {
-            return (
-              <li key={guestObject.key}>
-                <p> {guestObject.partyKey}  | {guestObject.newObject.user} | {guestObject.newObject.dairyFree} | {guestObject.newObject.eggFree} | {guestObject.newObject.glutenFree}</p>
-              </li>
-            )
-          })}
+          {
+            guest.map((guestObject) => {
+              // Compares partyKey to selected party choice
+              if (guestObject.partyKey === userChoice) {
+                return (
+                  <li key={guestObject.key}>
+                    {/* {guestObject.partyKey} */}
+                    <p>{guestObject.newObject.user} {guestObject.newObject.dairyFree} {guestObject.newObject.eggFree} {guestObject.newObject.glutenFree}</p>
+                  </li>
+                )
+              }
+            })
+          }
         </ul>
       </section>
-      <form action="">
-          <label htmlFor="partyChoice">Select Here:</label>
-          <select name="partyChoice" id="partyChoice">
-            {partyDataList.map((partyNumbers) =>{
-              return(
-            <option >{partyNumbers}</option>
-              )
-          })}
-          </select>
-        </form>
+
       <Footer />
     </div>
   );
