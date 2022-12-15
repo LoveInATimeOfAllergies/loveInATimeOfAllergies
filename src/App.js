@@ -28,7 +28,7 @@ function App() {
   const [molluskFree, setMolluskFree] = useState(false);
   const [mustardFree, setMustardFree] = useState(false);
   const [peanutFree, setPeanutFree] = useState(false);
-  const [pecatarian, setPecatarian] = useState(false);
+  const [pescatarian, setPescatarian] = useState(false);
   const [porkFree, setPorkFree] = useState(false);
   const [redMeatFree, setRedMeatFree] = useState(false);
   const [sesameFree, setSesameFree] = useState(false);
@@ -64,9 +64,31 @@ function App() {
             newObject: {
               key: newKey,
               user: nested[newKey].user,
+              alcoholFree: nested[newKey].alcoholFree,
+              celeryFree: nested[newKey].celeryFree,
+              crustaceanFree: nested[newKey].crustaceanFree,
               dairyFree: nested[newKey].dairyFree,
               eggFree: nested[newKey].eggFree,
+              fishFree: nested[newKey].fishFree,
+              fodmapFree: nested[newKey].fodmapFree,
               glutenFree: nested[newKey].glutenFree,
+              kidneyFriendly: nested[newKey].kidneyFriendly,
+              kosher: nested[newKey].kosher,
+              lupineFree: nested[newKey].lupineFree,
+              molluskFree: nested[newKey].molluskFree,
+              mustardFree: nested[newKey].mustardFree,
+              peanutFree: nested[newKey].peanutFree,
+              pescatarian: nested[newKey].pescatarian,
+              porkFree: nested[newKey].porkFree,
+              redMeatFree: nested[newKey].redMeatFree,
+              sesameFree: nested[newKey].sesameFree,
+              shellfishFree: nested[newKey].shellfishFree,
+              soyFree: nested[newKey].soyFree,
+              sulfiteFree: nested[newKey].sulfiteFree,
+              treeNutFree: nested[newKey].treeNutFree,
+              vegan: nested[newKey].vegan,
+              vegetarian: nested[newKey].vegetarian,
+              wheatFree: nested[newKey].wheatFree,
             },
           });
         }
@@ -81,23 +103,88 @@ function App() {
     const childNodeRef = ref(database, `/${partyInput}`);
     const newUser = {
       user: nameInput,
+      alcoholFree: alcoholFree ? "alcohol-free" : null,
+      celeryFree: celeryFree ? "celery-free" : null,
+      crustaceanFree: crustaceanFree ? "crustacean-free" : null,
       dairyFree: dairyFree ? "dairy-free" : null,
       eggFree: eggFree ? "egg-free" : null,
+      fishFree: fishFree ? "fish-free" : null,
+      fodmapFree: fodmapFree ? "fodmap-free" : null,
       glutenFree: glutenFree ? "gluten-free" : null,
-      // allergy: allergyInput,
+      kidneyFriendly: kidneyFriendly ? "kidney-friendly" : null,
+      kosher: kosher ? "kosher" : null,
+      lupineFree: lupineFree ? "lupine-free" : null,
+      molluskFree: molluskFree ? "mollusk-free" : null,
+      mustardFree: mustardFree ? "mustard-free" : null,
+      peanutFree: peanutFree ? "peanut-free" : null,
+      pescatarian: pescatarian ? "pescatarian" : null,
+      porkFree: porkFree ? "pork-free" : null,
+      redMeatFree: redMeatFree ? "red-meat-free" : null,
+      sesameFree: sesameFree ? "sesame-free" : null,
+      shellfishFree: shellfishFree ? "shellfish-free" : null,
+      soyFree: soyFree ? "soy-free" : null,
+      sulfiteFree: sulfiteFree ? "sulfite-free" : null,
+      treeNutFree: treeNutFree ? "tree-nut-free" : null,
+      vegan: vegan ? "vegan" : null,
+      vegetarian: vegetarian ? "vegetarian" : null,
+      wheatFree: wheatFree ? "wheat-free" : null, 
     };
     push(childNodeRef, newUser);
 
     // push(dbRef, userProfile)
     setNameInput("");
     // Specifically for the checkbox checkmarks to go away
+    document.getElementById("alcoholFree").checked = false;
+    document.getElementById("celeryFree").checked = false;
+    document.getElementById("crustaceanFree").checked = false;
     document.getElementById("dairyFree").checked = false;
     document.getElementById("eggFree").checked = false;
+    document.getElementById("fishFree").checked = false;
+    document.getElementById("fodmapFree").checked = false;
     document.getElementById("glutenFree").checked = false;
+    document.getElementById("kidneyFriendly").checked = false;
+    document.getElementById("kosher").checked = false;
+    document.getElementById("lupineFree").checked = false;
+    document.getElementById("molluskFree").checked = false;
+    document.getElementById("mustardFree").checked = false;
+    document.getElementById("peanutFree").checked = false;
+    document.getElementById("pescatarian").checked = false;
+    document.getElementById("porkFree").checked = false;
+    document.getElementById("redMeatFree").checked = false;
+    document.getElementById("sesameFree").checked = false;
+    document.getElementById("shellfishFree").checked = false;
+    document.getElementById("soyFree").checked = false;
+    document.getElementById("sulfiteFree").checked = false;
+    document.getElementById("treeNutFree").checked = false;
+    document.getElementById("vegan").checked = false;
+    document.getElementById("vegetarian").checked = false;
+    document.getElementById("wheatFree").checked = false;
     // Specifically to change the states back to false
+    setAlcholFree(false)
+    setCeleryFree(false);
+    setCrustaceanFree(false);
     setDairyFree(false);
     setEggFree(false);
+    setFishFree(false);
+    setFodmapFree(false);
     setGlutenFree(false);
+    setKidneyFriendly(false);
+    setKosher(false);
+    setLupineFree(false);
+    setMolluskFree(false);
+    setMustardFree(false);
+    setPeanutFree(false);
+    setPescatarian(false);
+    setPorkFree(false);
+    setRedMeatFree(false);
+    setSesameFree(false);
+    setShellFishFree(false);
+    setSoyFree(false);
+    setSulfiteFree(false);
+    setTreeNutFree(false);
+    setVegan(false);
+    setVegetarian(false);
+    setWheatFree(false);
   };
 
   const handleInputChangeParty = (event) => {
@@ -113,9 +200,31 @@ function App() {
     guest.map((allergyObject) => {
       if (allergyObject.partyKey === userChoice) {
         return allergyArray.push(
+          allergyObject.newObject.alcoholFree,
+          allergyObject.newObject.celeryFree,
+          allergyObject.newObject.crustaceanFree,
           allergyObject.newObject.dairyFree,
           allergyObject.newObject.eggFree,
-          allergyObject.newObject.glutenFree
+          allergyObject.newObject.fishFree,
+          allergyObject.newObject.fodmapFree,
+          allergyObject.newObject.glutenFree,
+          allergyObject.newObject.kidneyFree,
+          allergyObject.newObject.kosher,
+          allergyObject.newObject.lupineFree,
+          allergyObject.newObject.molluskFree,
+          allergyObject.newObject.mustardFree,
+          allergyObject.newObject.peanutFree,
+          allergyObject.newObject.pescatarian,
+          allergyObject.newObject.porkFree,
+          allergyObject.newObject.redMeatFree,
+          allergyObject.newObject.sesameFree,
+          allergyObject.newObject.shellfishFree,
+          allergyObject.newObject.soyFree,
+          allergyObject.newObject.sulfiteFree,
+          allergyObject.newObject.treeNutFree,
+          allergyObject.newObject.vegan,
+          allergyObject.newObject.vegetarian,
+          allergyObject.newObject.wheatFree
         );
       }
     });
@@ -291,13 +400,13 @@ function App() {
           onChange={(e) => setPeanutFree(e.target.checked)}
         />
 
-        <label htmlFor="pecatarian">Pescatarian</label>
+        <label htmlFor="pescatarian">Pescatarian</label>
         <input
           type="checkbox"
           name="allergies"
-          id="pecatarian"
-          value={pecatarian}
-          onChange={(e) => setPecatarian(e.target.checked)}
+          id="pescatarian"
+          value={pescatarian}
+          onChange={(e) => setPescatarian(e.target.checked)}
         />
 
         <label htmlFor="porkFree">Pork-Free</label>
