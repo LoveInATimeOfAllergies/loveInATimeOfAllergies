@@ -1,4 +1,9 @@
-const GuestList = ({guest, userChoice}) => {
+const GuestList = ({ guest, userChoice, filtered }) => {
+  // Options!!
+    // When we click the dropdown for the party, we get the guest names and all their dietary restrictions (like how we started out)
+      // This way we'd have to use each of the values on the newObject obj (aka gotta go .alcoholFree, .celeryFree, etc etc until .wheatFree and probably filter to remove nulls)
+    // We display dietary restrictions along with the recipes as a side note - basically, onChange only shows names, onSubmit you get the "This group has the following restrictions" or w/e plus the recipe list
+    // OR we figure out wtf is going wrong with our current code
   return(
     <section>
         <ul>
@@ -15,14 +20,21 @@ const GuestList = ({guest, userChoice}) => {
               );
             }
           })}
-        </ul>
-        <p>This party's dietary restrictions are: {
-          // filteredArray.map((string) => {
-          //   return (
-          //     <span>{string}</span>
-          //   )
-          // })
-        } </p>
+      </ul>
+    
+
+      {
+        (userChoice ?
+          <>
+            <p>This party's dietary restrictions are</p>
+            {filtered.map((restrictionName) => {
+              return (
+                <p>{restrictionName}</p>
+              )
+            })}
+          </>
+          : null)
+      }
       </section>
   )
 }

@@ -1,5 +1,5 @@
 import app from "./firebase.js";
-import { getDatabase, ref, onValue, push } from "firebase/database";
+import { getDatabase, ref, onValue } from "firebase/database";
 import Header from "./components/Header.js";
 import PartyForm from "./components/PartyForm.js";
 import Checkboxes from './components/Checkboxes.js';
@@ -21,7 +21,7 @@ function App() {
   const [guest, setGuest] = useState([]);
   const [partyDataList, setPartyDataList] = useState([]);
   const [userChoice, setUserChoice] = useState("");
-  // const [filteredArray, setFilteredArray] = useState([]);
+  const [filtered, setFiltered] = useState([]);
 
   const [recipes, setRecipes] = useState([]);
 
@@ -94,11 +94,14 @@ function App() {
         partyDataList={partyDataList}
         guest={guest}
         setRecipes={setRecipes}
+        filtered={filtered}
+        setFiltered={setFiltered}
       />
       
       <GuestList
         guest={guest}
         userChoice={userChoice}
+        filtered={filtered}
       />
       
       <RecipeDisplay
