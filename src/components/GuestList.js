@@ -19,7 +19,7 @@ const GuestList = ({ guest, userChoice }) => {
                 </li>
               );
             } else {
-              return
+              return null
             }
           })}
       </ul>

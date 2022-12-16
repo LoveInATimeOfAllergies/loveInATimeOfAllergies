@@ -45,7 +45,7 @@ const Dropdown = ({ userChoice, partyDataList, guest, setRecipes, setUserChoice 
           allergyObject.newObject.wheatFree
         );
       } else {
-        return
+        return null
       }
     });
     // Filter allergyArray for unique values and undefined
