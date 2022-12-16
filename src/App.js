@@ -21,7 +21,7 @@ function App() {
   const [guest, setGuest] = useState([]);
   const [partyDataList, setPartyDataList] = useState([]);
   const [userChoice, setUserChoice] = useState("");
-  const [filtered, setFiltered] = useState([]);
+  // const [filtered, setFiltered] = useState([]);
 
   const [recipes, setRecipes] = useState([]);
 
@@ -73,7 +73,7 @@ function App() {
       setGuest(dataArray);
       setPartyDataList(partyDataArray);
     });
-  }, []);
+  }, [dbRef]);
 
   return (
     <div className="App">
@@ -94,14 +94,14 @@ function App() {
         partyDataList={partyDataList}
         guest={guest}
         setRecipes={setRecipes}
-        filtered={filtered}
-        setFiltered={setFiltered}
+        // filtered={filtered}
+        // setFiltered={setFiltered}
       />
       
       <GuestList
         guest={guest}
         userChoice={userChoice}
-        filtered={filtered}
+        // filtered={filtered}
       />
       
       <RecipeDisplay

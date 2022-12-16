@@ -1,4 +1,4 @@
-const GuestList = ({ guest, userChoice, filtered }) => {
+const GuestList = ({ guest, userChoice }) => {
   // Options!!
     // When we click the dropdown for the party, we get the guest names and all their dietary restrictions (like how we started out)
       // This way we'd have to use each of the values on the newObject obj (aka gotta go .alcoholFree, .celeryFree, etc etc until .wheatFree and probably filter to remove nulls)
@@ -23,7 +23,7 @@ const GuestList = ({ guest, userChoice, filtered }) => {
       </ul>
     
 
-      {
+      {/* {
         (userChoice ?
           <>
             <p>This party's dietary restrictions are</p>
@@ -34,7 +34,7 @@ const GuestList = ({ guest, userChoice, filtered }) => {
             })}
           </>
           : null)
-      }
+      } */}
       </section>
   )
 }
