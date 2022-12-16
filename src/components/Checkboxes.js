@@ -1,6 +1,7 @@
 import { useState } from "react";
 import app from "../firebase.js";
 import { getDatabase, ref, push } from "firebase/database";
+import './Checkboxes.css'
 
 const Checkboxes = (props) => {
   const database = getDatabase(app);
