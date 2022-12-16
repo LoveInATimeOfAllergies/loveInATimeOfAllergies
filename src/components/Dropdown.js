@@ -5,10 +5,14 @@ const Dropdown = ({ userChoice, partyDataList, guest, setRecipes, setUserChoice 
   // API Call 
   // Consider what to do if user tries to submit the "show me recipes" button without choosing a party for error handling
   const callAPI = async (url) => {
-    const recipeData = await fetch(url);
-    const recipe = await recipeData.json();
-    console.log(recipe.hits);
-    setRecipes(recipe.hits);
+    if (userChoice === "") {
+      alert("Please select a party")
+    }
+    else {
+      const recipeData = await fetch(url);
+      const recipe = await recipeData.json();
+      setRecipes(recipe.hits);
+    }
   };
   // Constructing the endpont using filtered array (from filtered state)
   const constructEndpoint = (event) => {
