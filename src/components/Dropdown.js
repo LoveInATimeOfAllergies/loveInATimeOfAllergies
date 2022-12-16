@@ -3,6 +3,7 @@ const Dropdown = ({ userChoice, partyDataList, guest, setRecipes, setUserChoice 
 // We make a function here that updates on Change - so when the user chooses something from the dropdown, it creates the filtered array.
   
   // API Call 
+  // Consider what to do if user tries to submit the "show me recipes" button without choosing a party for error handling
   const callAPI = async (url) => {
     const recipeData = await fetch(url);
     const recipe = await recipeData.json();
@@ -43,6 +44,8 @@ const Dropdown = ({ userChoice, partyDataList, guest, setRecipes, setUserChoice 
           allergyObject.newObject.vegetarian,
           allergyObject.newObject.wheatFree
         );
+      } else {
+        return
       }
     });
     // Filter allergyArray for unique values and undefined

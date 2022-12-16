@@ -4,7 +4,6 @@ import { getDatabase, ref, push } from "firebase/database";
 
 const Checkboxes = (props) => {
 const database = getDatabase(app);
-const dbRef = ref(database);
 
 const [nameInput, setNameInput] = useState("");
     /////// checkboxes ///////

@@ -18,6 +18,8 @@ const GuestList = ({ guest, userChoice }) => {
                   </p>
                 </li>
               );
+            } else {
+              return
             }
           })}
       </ul>
