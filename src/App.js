@@ -78,35 +78,36 @@ function App() {
   return (
     <div className="App">
       <Header />
-      
-      <PartyForm
-        partyInput={partyInput}
-        setPartyInput={setPartyInput}
-      />
+      <main>
+        <PartyForm
+          partyInput={partyInput}
+          setPartyInput={setPartyInput}
+        />
 
-      <Checkboxes
-        partyInput={partyInput}
-      />
-      
-      <Dropdown
-        userChoice={userChoice}
-        setUserChoice={setUserChoice}
-        partyDataList={partyDataList}
-        guest={guest}
-        setRecipes={setRecipes}
-        // filtered={filtered}
-        // setFiltered={setFiltered}
-      />
-      
-      <GuestList
-        guest={guest}
-        userChoice={userChoice}
-        // filtered={filtered}
-      />
-      
-      <RecipeDisplay
-        recipes={recipes}
-      />
+        <Checkboxes
+          partyInput={partyInput}
+        />
+        
+        <Dropdown
+          userChoice={userChoice}
+          setUserChoice={setUserChoice}
+          partyDataList={partyDataList}
+          guest={guest}
+          setRecipes={setRecipes}
+          // filtered={filtered}
+          // setFiltered={setFiltered}
+        />
+        
+        <GuestList
+          guest={guest}
+          userChoice={userChoice}
+          // filtered={filtered}
+        />
+        
+        <RecipeDisplay
+          recipes={recipes}
+        />
+      </main>
       <Footer />
     </div>
   );
