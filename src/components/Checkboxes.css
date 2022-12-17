@@ -1,0 +1,50 @@
+/* Added class guestForm */
+/* .guestForm .guestName {
+  border: 2px black solid;
+} */
+
+/* separated sections - guest, checkboxes, button */
+/* .guestForm input {
+  width: 25px;
+  height: 25px;
+} */
+
+.guestForm .guestName {
+  margin: 10px 0;
+}
+
+.guestForm .guestName input {
+  text-transform: capitalize;
+}
+
+.guestForm .checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+/* could add pointer to label */
+/* try putting input in label for js? */
+.guestForm .checkboxes label {
+  border-right: 5px solid #260755;
+  margin: 0 auto 0 0;
+  width: 175px;
+  cursor: pointer;
+}
+
+.guestForm .checkboxes input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.guestForm button {
+  margin: 10px;
+  padding: 15px;
+  background-color: #871A3E;
+  color: #D3CFE6;
+  border: none;
+  border-radius: 35px;
+  text-transform: uppercase;
+}

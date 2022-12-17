@@ -38,8 +38,12 @@ const Checkboxes = (props) => {
     e.preventDefault();
     // blanks equal a falsy which we need to reverse to true to run the if statement
     if (!props.partyInput.trim()) {
-      alert("add a party");
-    } else {
+      alert("Add a party");
+    } 
+    else if (!nameInput.trim()) {
+      alert("Add a guest");
+    }
+    else {
       const childNodeRef = ref(database, `/${props.partyInput}`);
       const newUser = {
         user: nameInput,
@@ -129,241 +133,300 @@ const Checkboxes = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="nameField">Guest name:</label>
-      <input
-        type="text"
-        id="nameField"
-        value={nameInput}
-        onChange={(e) => setNameInput(e.target.value)}
-      />
+    <form onSubmit={handleSubmit} className="guestForm">
+      <div className="guestName">
+        <label htmlFor="nameField">Guest Name: </label>
+        <input
+          type="text"
+          id="nameField"
+          value={nameInput}
+          onChange={(e) => setNameInput(e.target.value)}
+        />
+      </div>
 
-      <label htmlFor="dairyFree">Dairy-Free</label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="dairyFree"
-        value={dairyFree}
-        onChange={(e) => setDairyFree(e.target.checked)}
-      />
+      <div className="checkboxes">
+        <label htmlFor="dairyFree">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="dairyFree"
+            value={dairyFree}
+            onChange={(e) => setDairyFree(e.target.checked)}
+          />
+          Dairy-Free
+        </label>
+        
 
-      <label htmlFor="eggFree">Egg-Free</label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="eggFree"
-        value={eggFree}
-        onChange={(e) => setEggFree(e.target.checked)}
-      />
+        <label htmlFor="eggFree">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="eggFree"
+            value={eggFree}
+            onChange={(e) => setEggFree(e.target.checked)}
+          />
+          Egg-Free
+        </label>
+        
 
-      <label htmlFor="glutenFree">Gluten-Free</label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="glutenFree"
-        value={glutenFree}
-        onChange={(e) => setGlutenFree(e.target.checked)}
-      />
+        <label htmlFor="glutenFree">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="glutenFree"
+            value={glutenFree}
+            onChange={(e) => setGlutenFree(e.target.checked)}
+          />
+          Gluten-Free
+        </label>
+      
 
-      <label htmlFor="alcoholFree">Alcohol-Free</label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="alcoholFree"
-        value={alcoholFree}
-        onChange={(e) => setAlcholFree(e.target.checked)}
-      />
+        <label htmlFor="alcoholFree">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="alcoholFree"
+            value={alcoholFree}
+            onChange={(e) => setAlcholFree(e.target.checked)}
+          />
+          Alcohol-Free
+        </label>
 
-      <label htmlFor="celeryFree">Celery-Free</label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="celeryFree"
-        value={celeryFree}
-        onChange={(e) => setCeleryFree(e.target.checked)}
-      />
+        <label htmlFor="celeryFree">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="celeryFree"
+            value={celeryFree}
+            onChange={(e) => setCeleryFree(e.target.checked)}
+          />
+          Celery-Free
+        </label>
 
-      <label htmlFor="crustaceanFree">Crustcean-Free</label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="crustaceanFree"
-        value={crustaceanFree}
-        onChange={(e) => setCrustaceanFree(e.target.checked)}
-      />
+        <label htmlFor="crustaceanFree">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="crustaceanFree"
+            value={crustaceanFree}
+            onChange={(e) => setCrustaceanFree(e.target.checked)}
+          />
+          Crustcean-Free
+        </label>
 
-      <label htmlFor="fishFree">Fish-Free</label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="fishFree"
-        value={fishFree}
-        onChange={(e) => setFishFree(e.target.checked)}
-      />
+        <label htmlFor="fishFree">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="fishFree"
+            value={fishFree}
+            onChange={(e) => setFishFree(e.target.checked)}
+          />
+          Fish-Free
+        </label>
 
-      <label htmlFor="fodmapFree">FODMAP-Free </label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="fodmapFree"
-        value={fodmapFree}
-        onChange={(e) => setFodmapFree(e.target.checked)}
-      />
+        <label htmlFor="fodmapFree">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="fodmapFree"
+            value={fodmapFree}
+            onChange={(e) => setFodmapFree(e.target.checked)}
+          />
+          FODMAP-Free
+        </label>
 
-      <label htmlFor="kidneyFriendly">Kidney-Friendly</label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="kidneyFriendly"
-        value={kidneyFriendly}
-        onChange={(e) => setKidneyFriendly(e.target.checked)}
-      />
+        <label htmlFor="kidneyFriendly">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="kidneyFriendly"
+            value={kidneyFriendly}
+            onChange={(e) => setKidneyFriendly(e.target.checked)}
+          />
+          Kidney-Friendly
+        </label>
 
-      <label htmlFor="kosher">Kosher</label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="kosher"
-        value={kosher}
-        onChange={(e) => setKosher(e.target.checked)}
-      />
+        <label htmlFor="kosher">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="kosher"
+            value={kosher}
+            onChange={(e) => setKosher(e.target.checked)}
+          />
+          Kosher
+        </label>
 
-      <label htmlFor="lupineFree">Lupine-Free </label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="lupineFree"
-        value={lupineFree}
-        onChange={(e) => setLupineFree(e.target.checked)}
-      />
+        <label htmlFor="lupineFree">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="lupineFree"
+            value={lupineFree}
+            onChange={(e) => setLupineFree(e.target.checked)}
+          />
+          Lupine-Free
+        </label>
 
-      <label htmlFor="molluskFree">Mollusk-Free</label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="molluskFree"
-        value={molluskFree}
-        onChange={(e) => setMolluskFree(e.target.checked)}
-      />
+        <label htmlFor="molluskFree">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="molluskFree"
+            value={molluskFree}
+            onChange={(e) => setMolluskFree(e.target.checked)}
+          />
+          Mollusk-Free
+        </label>
 
-      <label htmlFor="mustardFree">Mustard-Free</label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="mustardFree"
-        value={mustardFree}
-        onChange={(e) => setMustardFree(e.target.checked)}
-      />
+        <label htmlFor="mustardFree">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="mustardFree"
+            value={mustardFree}
+            onChange={(e) => setMustardFree(e.target.checked)}
+          />
+          Mustard-Free
+        </label>
 
-      <label htmlFor="peanutFree">Peanut-Free</label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="peanutFree"
-        value={peanutFree}
-        onChange={(e) => setPeanutFree(e.target.checked)}
-      />
+        <label htmlFor="peanutFree">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="peanutFree"
+            value={peanutFree}
+            onChange={(e) => setPeanutFree(e.target.checked)}
+          />
+          Peanut-Free
+        </label>
 
-      <label htmlFor="pescatarian">Pescatarian</label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="pescatarian"
-        value={pescatarian}
-        onChange={(e) => setPescatarian(e.target.checked)}
-      />
+        <label htmlFor="pescatarian">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="pescatarian"
+            value={pescatarian}
+            onChange={(e) => setPescatarian(e.target.checked)}
+          />
+          Pescatarian
+        </label>
 
-      <label htmlFor="porkFree">Pork-Free</label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="porkFree"
-        value={porkFree}
-        onChange={(e) => setPorkFree(e.target.checked)}
-      />
+        <label htmlFor="porkFree">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="porkFree"
+            value={porkFree}
+            onChange={(e) => setPorkFree(e.target.checked)}
+          />
+          Pork-Free
+        </label>
 
-      <label htmlFor="redMeatFree">Red-Meat-Free</label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="redMeatFree"
-        value={redMeatFree}
-        onChange={(e) => setRedMeatFree(e.target.checked)}
-      />
+        <label htmlFor="redMeatFree">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="redMeatFree"
+            value={redMeatFree}
+            onChange={(e) => setRedMeatFree(e.target.checked)}
+          />
+          Red-Meat-Free
+        </label>
 
-      <label htmlFor="sesameFree">Sesame-Free</label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="sesameFree"
-        value={sesameFree}
-        onChange={(e) => setSesameFree(e.target.checked)}
-      />
+        <label htmlFor="sesameFree">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="sesameFree"
+            value={sesameFree}
+            onChange={(e) => setSesameFree(e.target.checked)}
+          />
+          Sesame-Free
+        </label>
 
-      <label htmlFor="shellfishFree">Shellfish-Free</label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="shellfishFree"
-        value={shellfishFree}
-        onChange={(e) => setShellFishFree(e.target.checked)}
-      />
+        <label htmlFor="shellfishFree">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="shellfishFree"
+            value={shellfishFree}
+            onChange={(e) => setShellFishFree(e.target.checked)}
+          />
+          Shellfish-Free
+        </label>
 
-      <label htmlFor="soyFree">Soy-Free</label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="soyFree"
-        value={soyFree}
-        onChange={(e) => setSoyFree(e.target.checked)}
-      />
+        <label htmlFor="soyFree">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="soyFree"
+            value={soyFree}
+            onChange={(e) => setSoyFree(e.target.checked)}
+          />
+          Soy-Free
+        </label>
 
-      <label htmlFor="sulfiteFree">Sulfite-Free</label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="sulfiteFree"
-        value={sulfiteFree}
-        onChange={(e) => setSulfiteFree(e.target.checked)}
-      />
+        <label htmlFor="sulfiteFree">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="sulfiteFree"
+            value={sulfiteFree}
+            onChange={(e) => setSulfiteFree(e.target.checked)}
+          />
+          Sulfite-Free
+        </label>
 
-      <label htmlFor="treeNutFree">Tree-Nut-Free</label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="treeNutFree"
-        value={treeNutFree}
-        onChange={(e) => setTreeNutFree(e.target.checked)}
-      />
+        <label htmlFor="treeNutFree">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="treeNutFree"
+            value={treeNutFree}
+            onChange={(e) => setTreeNutFree(e.target.checked)}
+          />
+          Tree-Nut-Free
+        </label>
 
-      <label htmlFor="vegan">Vegan</label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="vegan"
-        value={vegan}
-        onChange={(e) => setVegan(e.target.checked)}
-      />
+        <label htmlFor="vegan">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="vegan"
+            value={vegan}
+            onChange={(e) => setVegan(e.target.checked)}
+          />
+          Vegan
+        </label>
 
-      <label htmlFor="vegetarian">Vegetarian</label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="vegetarian"
-        value={vegetarian}
-        onChange={(e) => setVegetarian(e.target.checked)}
-      />
+        <label htmlFor="vegetarian">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="vegetarian"
+            value={vegetarian}
+            onChange={(e) => setVegetarian(e.target.checked)}
+          />
+          Vegetarian
+        </label>
 
-      <label htmlFor="wheatFree">Wheat-Free</label>
-      <input
-        type="checkbox"
-        name="allergies"
-        id="wheatFree"
-        value={wheatFree}
-        onChange={(e) => setWheatFree(e.target.checked)}
-      />
+        <label htmlFor="wheatFree">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="wheatFree"
+            value={wheatFree}
+            onChange={(e) => setWheatFree(e.target.checked)}
+          />
+          Wheat-Free
+        </label>
+      </div>
 
-      <button>Submit</button>
+      <div className="buttonContainer">
+        <button>Submit</button>
+      </div>
     </form>
   );
 };
