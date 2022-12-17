@@ -17,11 +17,11 @@ html { box-sizing: border-box;}
  p{
     font-family: 'Lato';
     max-width: 50%;
-    color: #260755;
+    color: #260755; 
  }
 
  header, footer{
-    background-color: #D3CFE6;
+    
     max-width: 1260px;
     width: 90%;
     margin: 0 auto;  

@@ -9,6 +9,7 @@ import RecipeDisplay from "./components/RecipeDisplay.js";
 import Footer from "./components/Footer.js";
 import { useEffect, useState } from "react";
 import "./App.css";
+import './components/FontAwesomeIcon.js'
 
 function App() {
   // Bringing in firebase database to our component
