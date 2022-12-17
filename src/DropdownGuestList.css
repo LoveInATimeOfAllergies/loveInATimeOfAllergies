@@ -1,4 +1,14 @@
 .partyPreview {
-    background-color: #D3CFE6;
     padding: 5% 0;
+}
+
+.partySummary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.guestSummary {
+    display: flex;
 }
