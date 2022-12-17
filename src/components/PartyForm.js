@@ -6,9 +6,8 @@ const PartyForm = ({ partyInput, setPartyInput }) => {
   };
 
   return (
-    <form action="submit">
-      <label htmlFor="newParty">Add Party </label>
-      {/* CSS text-transform: capitalize? */}
+    <form action="submit" className="partyForm">
+      <label htmlFor="newParty">Add Party: </label>
       <input
         type="text"
         id="party"
