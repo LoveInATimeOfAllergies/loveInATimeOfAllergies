@@ -1,3 +1,5 @@
+import '../headerFooter.css'
+
 const Header = () => {
     return (
         <header>
