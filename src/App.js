@@ -2,7 +2,7 @@ import app from "./firebase.js";
 import { getDatabase, ref, onValue } from "firebase/database";
 import Header from "./components/Header.js";
 import PartyForm from "./components/PartyForm.js";
-import Checkboxes from './components/Checkboxes.js';
+import Checkboxes from "./components/Checkboxes.js";
 import Dropdown from "./components/Dropdown.js";
 import GuestList from "./components/GuestList.js";
 import RecipeDisplay from "./components/RecipeDisplay.js";
@@ -10,13 +10,14 @@ import Footer from "./components/Footer.js";
 import { useEffect, useState } from "react";
 import "./App.css";
 
+//
 function App() {
   // Bringing in firebase database to our component
   const database = getDatabase(app);
   const dbRef = ref(database);
   // Setting up states
   const [partyInput, setPartyInput] = useState("");
-  
+
   //////// user-input states //////////////
   const [guest, setGuest] = useState([]);
   const [partyDataList, setPartyDataList] = useState([]);
@@ -79,15 +80,10 @@ function App() {
     <div className="App">
       <Header />
       <main>
-        <PartyForm
-          partyInput={partyInput}
-          setPartyInput={setPartyInput}
-        />
+        <PartyForm partyInput={partyInput} setPartyInput={setPartyInput} />
 
-        <Checkboxes
-          partyInput={partyInput}
-        />
-        
+        <Checkboxes partyInput={partyInput} />
+
         <Dropdown
           userChoice={userChoice}
           setUserChoice={setUserChoice}
@@ -97,16 +93,14 @@ function App() {
           // filtered={filtered}
           // setFiltered={setFiltered}
         />
-        
+
         <GuestList
           guest={guest}
           userChoice={userChoice}
           // filtered={filtered}
         />
-        
-        <RecipeDisplay
-          recipes={recipes}
-        />
+
+        <RecipeDisplay recipes={recipes} />
       </main>
       <Footer />
     </div>
