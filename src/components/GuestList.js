@@ -7,9 +7,14 @@ const GuestList = ({ guest, userChoice }) => {
   return(
     <section>
         <ul>
-          {guest.map((guestObject) => {
+        {guest.map((guestObject) => {
+            // console.log(guestObject);
             // Compares partyKey to selected party choice
-            if (guestObject.partyKey === userChoice) {
+          if (guestObject.partyKey === userChoice) {
+            const groupedGuests = guestObject.newObject
+            const groupedGuestsRestrictions = Object.values(groupedGuests);
+            groupedGuestsRestrictions.filter(Boolean)
+            console.log(groupedGuestsRestrictions);
               return (
                 <li key={guestObject.newObject.key}>
                   {/* {guestObject.partyKey} */}

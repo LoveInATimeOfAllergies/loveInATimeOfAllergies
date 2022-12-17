@@ -87,22 +87,23 @@ function App() {
         <Checkboxes
           partyInput={partyInput}
         />
-        
-        <Dropdown
-          userChoice={userChoice}
-          setUserChoice={setUserChoice}
-          partyDataList={partyDataList}
-          guest={guest}
-          setRecipes={setRecipes}
-          // filtered={filtered}
-          // setFiltered={setFiltered}
-        />
-        
-        <GuestList
-          guest={guest}
-          userChoice={userChoice}
-          // filtered={filtered}
-        />
+        <section className="partyPreview">
+          <Dropdown
+            userChoice={userChoice}
+            setUserChoice={setUserChoice}
+            partyDataList={partyDataList}
+            guest={guest}
+            setRecipes={setRecipes}
+            // filtered={filtered}
+            // setFiltered={setFiltered}
+          />
+          
+          <GuestList
+            guest={guest}
+            userChoice={userChoice}
+            // filtered={filtered}
+          />
+        </section>
         
         <RecipeDisplay
           recipes={recipes}
