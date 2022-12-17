@@ -7,8 +7,31 @@ html { box-sizing: border-box;}
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
 
 
-@import url('https://fonts.googleapis.com/css2?family=Judson:wght@700&family=Lato&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Judson:wght@700&family=Lato&display=swap');
 
  h1 {
-    color: green;
+    font-family: 'Judson';
  }
+
+ p{
+    font-family: 'Lato';
+    max-width: 50%;
+ }
+
+ header, footer{
+    background-color: #D3CFE6;
+    max-width: 1260px;
+    width: 90%;
+    margin: 0 auto;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: solid black;
+    border-radius: 15px;
+    line-height: 18px;
+ }
+
+
+
