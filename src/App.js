@@ -17,12 +17,10 @@ function App() {
   const dbRef = ref(database);
   // Setting up states
   const [partyInput, setPartyInput] = useState("");
-  
   //////// user-input states //////////////
   const [guest, setGuest] = useState([]);
   const [partyDataList, setPartyDataList] = useState([]);
   const [userChoice, setUserChoice] = useState("");
-  // const [filtered, setFiltered] = useState([]);
 
   const [recipes, setRecipes] = useState([]);
 
@@ -80,31 +78,36 @@ function App() {
     <div className="App">
       <Header />
       <main>
-        <PartyForm
-          partyInput={partyInput}
-          setPartyInput={setPartyInput}
-        />
+        <section className="wrapper">
+          {/* <div> */}
+            <PartyForm
+              partyInput={partyInput}
+              setPartyInput={setPartyInput}
+            />
 
-        <Checkboxes
-          partyInput={partyInput}
-        />
-        
-        <Dropdown
-          userChoice={userChoice}
-          setUserChoice={setUserChoice}
-          partyDataList={partyDataList}
-          guest={guest}
-          setRecipes={setRecipes}
-          // filtered={filtered}
-          // setFiltered={setFiltered}
-        />
-        
-        <GuestList
-          guest={guest}
-          userChoice={userChoice}
-          // filtered={filtered}
-        />
-        
+            <Checkboxes
+              partyInput={partyInput}
+            />
+          {/* </div> */}
+        </section>
+          {/* <div> */}
+          <Dropdown
+            userChoice={userChoice}
+            setUserChoice={setUserChoice}
+            partyDataList={partyDataList}
+            guest={guest}
+            setRecipes={setRecipes}
+            // filtered={filtered}
+            // setFiltered={setFiltered}
+          />
+          
+          <GuestList
+            guest={guest}
+            userChoice={userChoice}
+            // filtered={filtered}
+          />
+          {/* </div> */}
+        {/* </section> */}
         <RecipeDisplay
           recipes={recipes}
         />
