@@ -1,3 +1,9 @@
+/* * {
+  border: 1px solid black;
+} */
+
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
 .App {
   text-align: center;
 }
@@ -36,3 +42,63 @@
     transform: rotate(360deg);
   }
 }
+/* #D3CFE6 #260755 #871A3E  */
+
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1260px;
+}
+
+.Recipe {
+  padding: 50px 0;
+  background-color: #d3cfe6;
+}
+
+.recipeList {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: space-evenly;
+  gap: 10px;
+  padding: 0;
+  /* padding-bottom: 50px; */
+  transition: transform 0.1s;
+}
+
+.individualRecipe {
+  width: 250px;
+  padding-bottom: 50px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5%;
+  margin-bottom: 20px;
+  transition: transform 0.5s;
+  box-shadow: 5px 10px #871a3e;
+  animation: 3s ease-in 1s infinite reverse both running slidein;
+}
+
+.individualRecipe:hover {
+  transform: scale(1.08);
+}
+.individualRecipe img {
+  width: 100%;
+  border-radius: 5%;
+}
+
+.individualRecipe a {
+  color: #260755;
+  font-family: "Lato", sans-serif;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.individualRecipe a:hover {
+  color: #871a3e;
+}
+
+/* .recipeList {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+} */
