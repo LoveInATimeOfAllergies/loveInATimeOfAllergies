@@ -1,4 +1,5 @@
-// import { useState, useEffect } from "react"
+import GuestListNames from './GuestListNames.js';
+import GuestListRestrictions from './GuestListRestrictions';
 
 const GuestList = ({ guest, userChoice }) => {
   // const [filtered, setFiltered] = useState([]);
@@ -10,43 +11,29 @@ const GuestList = ({ guest, userChoice }) => {
 
   return (
     
-    <section>
-      <h3>Guests in this Party:</h3>
-      <ul className="partySummary">
-        
-        {guest.map((
-          {partyKey, newObject: {alcoholFree, celeryFree, crustaceanFree, dairyFree, eggFree, fishFree, fodmapFree, glutenFree, key, kidneyFriendly, kosher, lupineFree, molluskFree, mustardFree, peanutFree, pescatarian, porkFree, redMeatFree, sesameFree, shellfishFree, soyFree, sulfiteFree, treeNutFree, user, vegan, vegetarian, wheatFree}}
-        ) => {
-            // Compares partyKey to selected party choice
-            if (partyKey === userChoice) {
-                return (
-                  <li key={key} className="guestSummary"> 
-                    <p className="guestSummaryName">{user}</p>
-                    <p className="guestSummaryRestrictions">
-                      {alcoholFree} {celeryFree} {crustaceanFree} {dairyFree} {eggFree} {fishFree} {fodmapFree} {glutenFree} {kidneyFriendly} {kosher} {lupineFree} {molluskFree} {mustardFree} {peanutFree} {pescatarian} {porkFree} {redMeatFree} {sesameFree} {shellfishFree} {soyFree} {sulfiteFree} {treeNutFree} {vegan} {vegetarian} {wheatFree}
-                    </p>
-                  </li>
-                );
-            } else {
-              return null
-            }
-          })}
-      </ul>
-    
-
-      {/* {
-        (userChoice ?
-          <>
-            <p>This party's dietary restrictions are</p>
-            {filtered.map((restrictionName) => {
-              return (
-                <p>{restrictionName}</p>
-              )
-            })}
-          </>
-          : null)
-      } */}
-      </section>
+    <div className="guestList">
+      {userChoice ?
+        <>
+          <h2>Party Summary</h2>
+          <ul className="partySummary">
+            <li className="guestName">
+              <h3>Name</h3>
+              <GuestListNames
+                guest={guest}
+                userChoice={userChoice}
+              />
+            </li>
+            <li className="guestRestrictions">
+              <h3>Dietary Restrictions</h3>
+              <GuestListRestrictions
+                guest={guest}
+                userChoice={userChoice}
+              />
+            </li>
+          </ul>
+        </>
+      : null}
+    </div>
   )
 }
 export default GuestList;
