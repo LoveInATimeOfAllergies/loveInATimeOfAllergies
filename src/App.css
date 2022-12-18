@@ -44,3 +44,54 @@ section, h1, p {
 .App {
   text-align: center;
 }
+
+/* Party Form */
+.partyForm {
+  margin: 10px 0;
+}
+.partyForm input {
+  /* capitalizes on input, database is lowercase. Doesn't seen to have errors */
+  text-transform: capitalize;
+}
+
+/* Checkboxes */
+.guestForm .guestName {
+  margin: 10px 0;
+}
+
+.guestForm .guestName input {
+  text-transform: capitalize;
+}
+
+.guestForm .checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+/* could add pointer to label */
+/* try putting input in label for js? */
+.guestForm .checkboxes label {
+  border-right: 5px solid #260755;
+  margin-right: 2%;
+  width: 175px;
+  cursor: pointer;
+}
+
+.guestForm .checkboxes input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.guestForm button {
+  margin: 10px;
+  padding: 15px;
+  background-color: #871A3E;
+  color: #D3CFE6;
+  border: none;
+  border-radius: 35px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
