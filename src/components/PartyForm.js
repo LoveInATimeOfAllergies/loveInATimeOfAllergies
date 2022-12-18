@@ -1,5 +1,3 @@
-import "./PartyForm.css"
-
 const PartyForm = ({ partyInput, setPartyInput }) => {
   const handleInputChangeParty = (event) => {
     setPartyInput(event.target.value);
@@ -7,12 +5,13 @@ const PartyForm = ({ partyInput, setPartyInput }) => {
 
   return (
     <form action="submit" className="partyForm">
-      <label htmlFor="newParty">Add Party: </label>
+      <label htmlFor="newParty">Party Name: </label>
       <input
         type="text"
         id="party"
         onChange={handleInputChangeParty}
         value={partyInput}
+        placeholder="ex: Birthday Party"
       />
     </form>
   );

@@ -1,5 +1,3 @@
-import "../DropdownGuestList.css"
-
 const Dropdown = ({
   userChoice,
   partyDataList,

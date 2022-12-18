@@ -1,7 +1,6 @@
 import { useState } from "react";
 import app from "../firebase.js";
 import { getDatabase, ref, push } from "firebase/database";
-import './Checkboxes.css'
 
 const Checkboxes = (props) => {
   const database = getDatabase(app);
@@ -141,6 +140,7 @@ const Checkboxes = (props) => {
           id="nameField"
           value={nameInput}
           onChange={(e) => setNameInput(e.target.value)}
+          placeholder="John Smith"
         />
       </div>
 
@@ -425,7 +425,7 @@ const Checkboxes = (props) => {
       </div>
 
       <div className="buttonContainer">
-        <button>Submit</button>
+        <button className="btn">Submit</button>
       </div>
     </form>
   );
