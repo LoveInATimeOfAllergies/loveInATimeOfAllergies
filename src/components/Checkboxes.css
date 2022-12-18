@@ -27,7 +27,7 @@
 /* try putting input in label for js? */
 .guestForm .checkboxes label {
   border-right: 5px solid #260755;
-  margin: 0 auto 0 0;
+  margin-right: 2%;
   width: 175px;
   cursor: pointer;
 }
@@ -47,4 +47,5 @@
   border: none;
   border-radius: 35px;
   text-transform: uppercase;
+  cursor: pointer;
 }
