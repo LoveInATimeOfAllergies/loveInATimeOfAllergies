@@ -9,6 +9,7 @@ import RecipeDisplay from "./components/RecipeDisplay.js";
 import Footer from "./components/Footer.js";
 import { useEffect, useState } from "react";
 import "./App.css";
+import './components/FontAwesomeIcon.js'
 
 //
 function App() {
@@ -22,7 +23,6 @@ function App() {
   const [guest, setGuest] = useState([]);
   const [partyDataList, setPartyDataList] = useState([]);
   const [userChoice, setUserChoice] = useState("");
-  // const [filtered, setFiltered] = useState([]);
 
   const [recipes, setRecipes] = useState([]);
 
@@ -80,27 +80,36 @@ function App() {
     <div className="App">
       <Header />
       <main>
-        <PartyForm partyInput={partyInput} setPartyInput={setPartyInput} />
 
-        <Checkboxes partyInput={partyInput} />
-
-        <Dropdown
-          userChoice={userChoice}
-          setUserChoice={setUserChoice}
-          partyDataList={partyDataList}
-          guest={guest}
-          setRecipes={setRecipes}
-          // filtered={filtered}
-          // setFiltered={setFiltered}
+      
+        <PartyForm
+          partyInput={partyInput}
+          setPartyInput={setPartyInput}
         />
 
-        <GuestList
-          guest={guest}
-          userChoice={userChoice}
-          // filtered={filtered}
+        <Checkboxes
+          partyInput={partyInput}
+        />
+        <section className="partyPreview">
+        
+          <Dropdown
+            userChoice={userChoice}
+            setUserChoice={setUserChoice}
+            partyDataList={partyDataList}
+            guest={guest}
+            setRecipes={setRecipes}
+          />
+          
+          <GuestList
+            guest={guest}
+            userChoice={userChoice}
+          />
+        </section>
+
+        <RecipeDisplay
+          recipes={recipes}
         />
 
-        <RecipeDisplay recipes={recipes} />
       </main>
       <Footer />
     </div>
