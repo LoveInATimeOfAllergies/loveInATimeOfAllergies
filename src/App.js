@@ -9,6 +9,7 @@ import RecipeDisplay from "./components/RecipeDisplay.js";
 import Footer from "./components/Footer.js";
 import { useEffect, useState } from "react";
 import "./App.css";
+import './components/FontAwesomeIcon.js'
 
 function App() {
   // Bringing in firebase database to our component
@@ -16,7 +17,6 @@ function App() {
   const dbRef = ref(database);
   // Setting up states
   const [partyInput, setPartyInput] = useState("");
-  
   //////// user-input states //////////////
   const [guest, setGuest] = useState([]);
   const [partyDataList, setPartyDataList] = useState([]);
@@ -78,6 +78,7 @@ function App() {
     <div className="App">
       <Header />
       <main>
+      
         <PartyForm
           partyInput={partyInput}
           setPartyInput={setPartyInput}
@@ -87,6 +88,7 @@ function App() {
           partyInput={partyInput}
         />
         <section className="partyPreview">
+        
           <Dropdown
             userChoice={userChoice}
             setUserChoice={setUserChoice}
@@ -100,7 +102,7 @@ function App() {
             userChoice={userChoice}
           />
         </section>
-        
+
         <RecipeDisplay
           recipes={recipes}
         />
