@@ -4,7 +4,10 @@ const RecipeDisplay = ({ recipes }) => {
       <ul className="recipeList wrapper">
         {recipes.map((recipeObject) => {
           return (
-            <li className="individualRecipe" key={recipeObject.recipe.label}>
+            <li
+              className="individualRecipe cssanimation fadeInBottom"
+              key={recipeObject.recipe.label}
+            >
               <a href={recipeObject.recipe.url}>
                 <img
                   src={recipeObject.recipe.image}

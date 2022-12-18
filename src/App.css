@@ -73,9 +73,9 @@
   background-color: white;
   border-radius: 5%;
   margin-bottom: 20px;
-  transition: transform 0.5s;
-  box-shadow: 5px 10px #871a3e;
-  animation: 3s ease-in 1s infinite reverse both running slidein;
+  transition: transform 0.2s;
+  /* box-shadow: 5px 10px #871a3e; */
+  box-shadow: 0 0 10px #302e2f;
 }
 
 .individualRecipe:hover {
@@ -102,3 +102,19 @@
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 } */
+
+.cssanimation {
+  animation-name: fadeInBottom;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+  }
+}
