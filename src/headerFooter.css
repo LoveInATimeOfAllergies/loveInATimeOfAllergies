@@ -35,5 +35,10 @@ html { box-sizing: border-box;}
     line-height: 18px;
  }
 
+ a {
+   text-decoration: none;
+   color:#260755;
+ }
+
 
 
