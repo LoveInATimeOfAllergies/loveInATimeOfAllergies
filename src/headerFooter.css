@@ -14,7 +14,7 @@ html { box-sizing: border-box;}
     color: #260755;
  }
 
- p{
+  header p, footer p{
     font-family: 'Lato';
     max-width: 50%;
     color: #260755; 
