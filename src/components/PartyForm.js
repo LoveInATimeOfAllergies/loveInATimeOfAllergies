@@ -1,5 +1,3 @@
-import "./PartyForm.css"
-
 const PartyForm = ({ partyInput, setPartyInput }) => {
   const handleInputChangeParty = (event) => {
     setPartyInput(event.target.value);
