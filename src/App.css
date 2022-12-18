@@ -2,8 +2,6 @@
   border: 1px solid black;
 } */
 
-@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
-
 .App {
   text-align: center;
 }
@@ -44,6 +42,10 @@
 }
 /* #D3CFE6 #260755 #871A3E  */
 
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+/* New information */
+
 .wrapper {
   width: 90%;
   margin: 0 auto;
@@ -62,7 +64,6 @@
   justify-content: space-evenly;
   gap: 10px;
   padding: 0;
-  /* padding-bottom: 50px; */
   transition: transform 0.1s;
 }
 
@@ -74,7 +75,6 @@
   border-radius: 5%;
   margin-bottom: 20px;
   transition: transform 0.2s;
-  /* box-shadow: 5px 10px #871a3e; */
   box-shadow: 0 0 10px #948c90;
 }
 
@@ -96,12 +96,6 @@
 .individualRecipe a:hover {
   color: #871a3e;
 }
-
-/* .recipeList {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-} */
 
 .cssanimation {
   animation-name: fadeInBottom;
