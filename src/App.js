@@ -78,36 +78,31 @@ function App() {
     <div className="App">
       <Header />
       <main>
-        <section className="wrapper">
-          {/* <div> */}
-            <PartyForm
-              partyInput={partyInput}
-              setPartyInput={setPartyInput}
-            />
+      
+        <PartyForm
+          partyInput={partyInput}
+          setPartyInput={setPartyInput}
+        />
 
-            <Checkboxes
-              partyInput={partyInput}
-            />
-          {/* </div> */}
-        </section>
-          {/* <div> */}
+        <Checkboxes
+          partyInput={partyInput}
+        />
+        <section className="partyPreview">
+        
           <Dropdown
             userChoice={userChoice}
             setUserChoice={setUserChoice}
             partyDataList={partyDataList}
             guest={guest}
             setRecipes={setRecipes}
-            // filtered={filtered}
-            // setFiltered={setFiltered}
           />
           
           <GuestList
             guest={guest}
             userChoice={userChoice}
-            // filtered={filtered}
           />
-          {/* </div> */}
-        {/* </section> */}
+        </section>
+
         <RecipeDisplay
           recipes={recipes}
         />
