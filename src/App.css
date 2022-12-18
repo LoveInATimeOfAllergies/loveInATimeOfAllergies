@@ -51,8 +51,8 @@
 }
 
 .Recipe {
-  padding: 50px 0;
   background-color: #d3cfe6;
+  padding: 50px 0;
 }
 
 .recipeList {
@@ -112,7 +112,7 @@
 @keyframes fadeInBottom {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(50px);
   }
   to {
     opacity: 1;
