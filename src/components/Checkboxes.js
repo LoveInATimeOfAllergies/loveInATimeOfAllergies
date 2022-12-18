@@ -140,6 +140,7 @@ const Checkboxes = (props) => {
           id="nameField"
           value={nameInput}
           onChange={(e) => setNameInput(e.target.value)}
+          placeholder="John Smith"
         />
       </div>
 
@@ -424,7 +425,7 @@ const Checkboxes = (props) => {
       </div>
 
       <div className="buttonContainer">
-        <button>Submit</button>
+        <button className="btn">Submit</button>
       </div>
     </form>
   );

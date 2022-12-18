@@ -70,30 +70,37 @@ const Dropdown = ({
   };
 
   return (
-    <form onSubmit={constructEndpoint}>
-      <label htmlFor="partyChoice">Select Here:</label>
-      {/* onChange, store user choice in stateful variable to use in if statement */}
-      <select
-        name="partyChoice"
-        id="partyChoice"
-        onChange={(e) => {
-          setUserChoice(e.target.value);
-        }}
-        value={userChoice}
-      >
-        <option value="" disabled>
-          Choose a party
-        </option>
-        {partyDataList.map((partyNumbers) => {
-          return (
-            <option value={partyNumbers} key={partyNumbers}>
-              {partyNumbers}
-            </option>
-          );
-        })}
-      </select>
-      <button>Show me recipes</button>
-    </form>
+    <div class="dropdown">
+      <h2>Party Select</h2>
+      <form className="dropdownForm" onSubmit={constructEndpoint}>
+        <fieldset>
+          <legend>Select the party for which you wish to see recipe suggestions!</legend>
+          <div>
+            <label htmlFor="partyChoice">Choose your party</label>
+            <select
+              name="partyChoice"
+              id="partyChoice"
+              onChange={(e) => {
+                setUserChoice(e.target.value);
+              }}
+              value={userChoice}
+            >
+              <option value="" disabled>
+                Choose a party
+              </option>
+              {partyDataList.map((partyNumbers) => {
+                return (
+                  <option value={partyNumbers} key={partyNumbers}>
+                    {partyNumbers}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+          <button className="btn">Show me recipes</button>
+        </fieldset>
+      </form>
+    </div>
   );
 };
 export default Dropdown;

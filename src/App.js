@@ -2,20 +2,23 @@ import app from "./firebase.js";
 import { getDatabase, ref, onValue } from "firebase/database";
 import Header from "./components/Header.js";
 import PartyForm from "./components/PartyForm.js";
-import Checkboxes from './components/Checkboxes.js';
+import Checkboxes from "./components/Checkboxes.js";
 import Dropdown from "./components/Dropdown.js";
 import GuestList from "./components/GuestList.js";
 import RecipeDisplay from "./components/RecipeDisplay.js";
 import Footer from "./components/Footer.js";
 import { useEffect, useState } from "react";
 import "./App.css";
+import './components/FontAwesomeIcon.js'
 
+//
 function App() {
   // Bringing in firebase database to our component
   const database = getDatabase(app);
   const dbRef = ref(database);
   // Setting up states
   const [partyInput, setPartyInput] = useState("");
+
   //////// user-input states //////////////
   const [guest, setGuest] = useState([]);
   const [partyDataList, setPartyDataList] = useState([]);
@@ -75,42 +78,41 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <main>
-        <section className="wrapper">
-          {/* <div> */}
-            <PartyForm
-              partyInput={partyInput}
-              setPartyInput={setPartyInput}
-            />
+      <div className="wrapper">
+        <Header />
+        
+        <main>
+          <PartyForm
+            partyInput={partyInput}
+            setPartyInput={setPartyInput}
+          />
 
-            <Checkboxes
-              partyInput={partyInput}
+          <Checkboxes
+            partyInput={partyInput}
+          />
+
+          <section className="partyPreview">
+            <Dropdown
+              userChoice={userChoice}
+              setUserChoice={setUserChoice}
+              partyDataList={partyDataList}
+              guest={guest}
+              setRecipes={setRecipes}
             />
-          {/* </div> */}
-        </section>
-          {/* <div> */}
-          <Dropdown
-            userChoice={userChoice}
-            setUserChoice={setUserChoice}
-            partyDataList={partyDataList}
-            guest={guest}
-            setRecipes={setRecipes}
-            // filtered={filtered}
-            // setFiltered={setFiltered}
+            
+            <GuestList
+              guest={guest}
+              userChoice={userChoice}
+            />
+          </section>
+
+          <RecipeDisplay
+            recipes={recipes}
           />
-          
-          <GuestList
-            guest={guest}
-            userChoice={userChoice}
-            // filtered={filtered}
-          />
-          {/* </div> */}
-        {/* </section> */}
-        <RecipeDisplay
-          recipes={recipes}
-        />
-      </main>
+
+        </main>
+      </div>
+
       <Footer />
     </div>
   );
