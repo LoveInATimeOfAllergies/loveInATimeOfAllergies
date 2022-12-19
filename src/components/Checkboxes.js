@@ -145,42 +145,6 @@ const Checkboxes = (props) => {
       </div>
 
       <div className="checkboxes">
-        <label htmlFor="dairyFree">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="dairyFree"
-            value={dairyFree}
-            onChange={(e) => setDairyFree(e.target.checked)}
-          />
-          Dairy-Free
-        </label>
-        
-
-        <label htmlFor="eggFree">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="eggFree"
-            value={eggFree}
-            onChange={(e) => setEggFree(e.target.checked)}
-          />
-          Egg-Free
-        </label>
-        
-
-        <label htmlFor="glutenFree">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="glutenFree"
-            value={glutenFree}
-            onChange={(e) => setGlutenFree(e.target.checked)}
-          />
-          Gluten-Free
-        </label>
-      
-
         <label htmlFor="alcoholFree">
           <input
             type="checkbox"
@@ -214,6 +178,28 @@ const Checkboxes = (props) => {
           Crustcean-Free
         </label>
 
+        <label htmlFor="dairyFree">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="dairyFree"
+            value={dairyFree}
+            onChange={(e) => setDairyFree(e.target.checked)}
+          />
+          Dairy-Free
+        </label>
+
+        <label htmlFor="eggFree">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="eggFree"
+            value={eggFree}
+            onChange={(e) => setEggFree(e.target.checked)}
+          />
+          Egg-Free
+        </label>
+
         <label htmlFor="fishFree">
           <input
             type="checkbox"
@@ -234,6 +220,17 @@ const Checkboxes = (props) => {
             onChange={(e) => setFodmapFree(e.target.checked)}
           />
           FODMAP-Free
+        </label>
+
+        <label htmlFor="glutenFree">
+          <input
+            type="checkbox"
+            name="allergies"
+            id="glutenFree"
+            value={glutenFree}
+            onChange={(e) => setGlutenFree(e.target.checked)}
+          />
+          Gluten-Free
         </label>
 
         <label htmlFor="kidneyFriendly">
