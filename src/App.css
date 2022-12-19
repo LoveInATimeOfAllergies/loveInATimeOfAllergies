@@ -49,9 +49,9 @@ fieldset, button {
 h1 {
   font-family: 'Judson', serif;
   color: #260755;
-  margin: 50px 0;
+  margin: 100px 0;
   letter-spacing: 1px;
-  font-size: 3rem;
+  font-size: 3.5rem;
 }
 
 h2, h3 {
@@ -79,8 +79,8 @@ p, legend, label, button {
 
 /* Header & Footer */
 header p{
-  max-width: 50%; 
-  margin-bottom: 25px;
+  max-width: 75%; 
+  margin: 10px 0;
 }
 
 header{
@@ -102,6 +102,9 @@ footer p {
   align-items: center;
   border-radius: 15px;
   border: solid #871A3E;
+  background-color: white;
+  padding-top: 50px;
+  margin-bottom: 50px
 }
 
 a {
@@ -137,12 +140,13 @@ a:hover, a:focus {
   display: flex;
   flex-wrap: wrap;
   text-align: left;
+  justify-content: space-between;
+  /* margin: 15px; */
 }
 
 .guestForm .checkboxes label {
-  border-right: 5px solid #260755;
-  margin-right: 2%;
-  width: 175px;
+  /* border-right: 5px solid #260755; */
+  width: 200px;
   cursor: pointer;
 }
 
@@ -153,9 +157,35 @@ a:hover, a:focus {
   margin-right: 5px;
 }
 
+
+input {
+  border: none;
+  padding: 5px 10px ;
+  border-radius: 20px;
+}
+
+.checkboxes {
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  margin-top: 50px;
+}
+
+.buttonContainer {
+  margin: 50px;
+}
+
+#partyChoice {
+  border: none;
+  padding: 5px 10px;
+  background-color: white;
+}
+
+
+
 /* Party Preview Section (includes Dropdown.js & GuestList.js component) */
 .partyPreview {
-    padding: 5% 0;
+    padding: 25px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -164,6 +194,7 @@ a:hover, a:focus {
 /* Dropdown component */
 .dropdown {
     text-align: center;
+    padding-bottom: 25px;
 }
 
 label {
@@ -182,6 +213,7 @@ fieldset div {
     text-transform: uppercase;
     transition: all .3s;
     cursor: pointer;
+    width: 222px;
 }
 
 .btn:hover, 

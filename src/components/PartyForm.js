@@ -1,10 +1,11 @@
 const PartyForm = ({ partyInput, setPartyInput }) => {
   const handleInputChangeParty = (event) => {
-    setPartyInput(event.target.value);
+    setPartyInput(event.target.value.toLowerCase());
   };
 
   return (
     <form action="submit" className="partyForm">
+      <h2>Party Create</h2>
       <label htmlFor="newParty">Party Name: </label>
       <input
         type="text"
