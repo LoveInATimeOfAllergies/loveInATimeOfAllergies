@@ -61,16 +61,20 @@ const Dropdown = ({
     const filteredArray = unique.filter(
       (restriction) => restriction !== undefined
     );
-    const merged = filteredArray.join("&health=");
-    const url = new URL(
-      `https://api.edamam.com/api/recipes/v2?type=public&app_id=fda19781&app_key=80eb03af50e7092c886828535d566860&mealType=dinner&random=true&health=${merged}`
+    let url = new URL(
+      `https://api.edamam.com/api/recipes/v2?type=public&app_id=fda19781&app_key=80eb03af50e7092c886828535d566860&mealType=dinner&random=true`
     );
-    console.log(url);
+    if (filteredArray.length > 0) {
+      const merged = filteredArray.join("&health=");
+      url = new URL(
+        `https://api.edamam.com/api/recipes/v2?type=public&app_id=fda19781&app_key=80eb03af50e7092c886828535d566860&mealType=dinner&random=true&health=${merged}`
+      );
+    }
     callAPI(url);
   };
 
   return (
-    <div class="dropdown">
+    <div className="dropdown">
       <h2>Party Select</h2>
       <form className="dropdownForm" onSubmit={constructEndpoint}>
         <fieldset>
