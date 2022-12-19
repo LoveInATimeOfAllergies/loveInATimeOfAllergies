@@ -49,9 +49,9 @@ fieldset, button {
 h1 {
   font-family: 'Judson', serif;
   color: #260755;
-  margin: 50px 0;
+  margin: 100px 0;
   letter-spacing: 1px;
-  font-size: 3rem;
+  font-size: 3.5rem;
 }
 
 h2, h3 {
@@ -79,7 +79,7 @@ p, legend, label, button {
 
 /* Header & Footer */
 header p{
-  max-width: 50%; 
+  max-width: 75%; 
   margin: 10px 0;
 }
 
@@ -102,6 +102,9 @@ footer p {
   align-items: center;
   border-radius: 15px;
   border: solid #871A3E;
+  background-color: white;
+  padding-top: 50px;
+  margin-bottom: 50px
 }
 
 a {
@@ -138,11 +141,11 @@ a:hover, a:focus {
   flex-wrap: wrap;
   text-align: left;
   justify-content: space-between;
-  margin: 15px;
+  /* margin: 15px; */
 }
 
 .guestForm .checkboxes label {
-  border-right: 5px solid #260755;
+  /* border-right: 5px solid #260755; */
   width: 200px;
   cursor: pointer;
 }
@@ -153,6 +156,32 @@ a:hover, a:focus {
   cursor: pointer;
   margin-right: 5px;
 }
+
+
+input {
+  border: none;
+  padding: 5px 10px ;
+  border-radius: 20px;
+}
+
+.checkboxes {
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  margin-top: 50px;
+}
+
+.buttonContainer {
+  margin: 50px;
+}
+
+#partyChoice {
+  border: none;
+  padding: 5px 10px;
+  background-color: white;
+}
+
+
 
 /* Party Preview Section (includes Dropdown.js & GuestList.js component) */
 .partyPreview {

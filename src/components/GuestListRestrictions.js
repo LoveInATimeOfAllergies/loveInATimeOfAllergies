@@ -8,7 +8,7 @@ const GuestListRestrictions = ({guest, userChoice}) => {
             if (partyKey === userChoice) {
                 return (
                     <p key={key}>
-                        {alcoholFree} {celeryFree} {crustaceanFree} {dairyFree} {eggFree} {fishFree} {fodmapFree} {glutenFree} {kidneyFriendly} {kosher} {lupineFree} {molluskFree} {mustardFree} {peanutFree} {pescatarian} {porkFree} {redMeatFree} {sesameFree} {shellfishFree} {soyFree} {sulfiteFree} {treeNutFree} {vegan} {vegetarian} {wheatFree}
+                        {alcoholFree} {celeryFree} {crustaceanFree} {dairyFree} {eggFree} {fishFree} {fodmapFree} {glutenFree} {kidneyFriendly} {kosher} {lupineFree} {molluskFree} {mustardFree} {peanutFree} {pescatarian} {porkFree} {redMeatFree} {sesameFree} {shellfishFree} {soyFree} {sulfiteFree} {treeNutFree} {vegan} {vegetarian} {wheatFree} &nbsp;
                     </p>
                 )
             } else {
