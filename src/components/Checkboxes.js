@@ -133,7 +133,7 @@ const Checkboxes = (props) => {
 
   return (
     <form onSubmit={handleSubmit} className="guestForm">
-      <div className="guestName">
+      <div className="guestNameBox">
         <label htmlFor="nameField">Guest Name: </label>
         <input
           type="text"

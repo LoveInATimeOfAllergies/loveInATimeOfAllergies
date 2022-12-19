@@ -52,6 +52,7 @@ h1 {
   margin: 100px 0;
   letter-spacing: 1px;
   font-size: 3.5rem;
+  line-height: 1;
 }
 
 h2, h3 {
@@ -63,12 +64,14 @@ h2 {
   font-size: 2rem;
   color: #260755;
   padding: 20px;
+  line-height: 1;
 }
 
 h3 {
   font-size: 1.4rem;
   color: #871A3E;
   letter-spacing: 3px;
+  padding-top: 10px;
 }
 
 p, legend, label, button {
@@ -128,11 +131,11 @@ a:hover, a:focus {
 }
 
 /* Checkboxes */
-.guestForm .guestName {
+.guestForm .guestNameBox {
   margin: 10px 0;
 }
 
-.guestForm .guestName input {
+.guestForm .guestNameBox input {
   text-transform: capitalize;
 }
 
@@ -259,6 +262,7 @@ fieldset div {
 
 .guestRestrictions {
     text-align: left;
+    
 }
 
 /* RECIPE IMAGE STYLING */
@@ -319,5 +323,89 @@ fieldset div {
   }
   to {
     opacity: 1;
+  }
+}
+
+@media (max-width: 1150px) {
+  .guestName {
+    width: 30%;
+
+
+  }
+
+   
+  
+
+}
+@media (max-width:750px) {
+
+  .guestName{
+    width: 100%;
+  }
+  
+
+  .partySummary {
+    flex-direction: column;
+    
+  }
+
+  .guestRestrictions{
+    text-align: center;
+    margin-top: 10px;
+   
+
+  }
+
+  .partySummary li:first-child {
+    padding-left: 0px;
+
+  }
+
+  .partySummary li:last-child {
+    padding-right: 0px;
+
+  }
+
+ 
+
+  
+
+  
+}
+
+@media (max-width: 550px) {
+
+  h1 {
+    font-size: 2.7rem;
+  }
+
+  h3{
+    font-size: 1.2rem;
+    letter-spacing: 0px;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+    padding: 0 10px;
+  }
+
+  .buttonContainer{
+    margin: 50px auto;
+    
+  }
+
+ 
+
+  .guestForm .checkboxes label {
+    width: 175px;
+  }
+
+ 
+}
+
+@media (max-width: 494px){
+  .guestForm .checkboxes{
+    /* padding-left: 30%; */
+    justify-content: center;
   }
 }
