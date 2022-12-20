@@ -60,7 +60,6 @@ fieldset, button {
 .faIcon {
   font-size: 2rem;
   color:#871A3E;
-
 }
 
 .btn {
@@ -82,7 +81,6 @@ fieldset, button {
 /* Huge thanks to the Shape Divider App at https://www.shapedivider.app/ for the easy wave shaped SVG */
 
 /* Wave SVG used in Header and Party Preview sections */
-
 .wave {
   position: absolute;
   bottom: 0;
@@ -92,10 +90,11 @@ fieldset, button {
   line-height: 0;
   transform: rotate(180deg);
   fill: #D3CFE6;
+  margin-bottom: -1px;
 }
 
 .wave svg {
-  position: relative;
+  position: block;
   display: block;
   width: calc(139% + 1.3px);
   height: 147px;
@@ -107,7 +106,7 @@ fieldset, button {
 }
 
 .waveForms svg {
-  position: relative;
+  position: block;
   display: block;
   width: calc(100% + 1.3px);
   height: 158px;
@@ -220,8 +219,8 @@ footer p {
 .partyForm {
   margin: 10px 0;
 }
+
 .partyForm input {
-  /* capitalizes on input, database is lowercase. Doesn't seen to have errors */
   text-transform: capitalize;
 }
 
@@ -430,6 +429,10 @@ fieldset div {
 }
 
 @media (max-width:750px) {
+  .textContainer {
+    padding-bottom: 20px;
+  }
+  
   .guestName{
     width: 100%;
   }
@@ -441,6 +444,7 @@ fieldset div {
   .partySummary p:last-child{
     border-bottom: 1px solid grey;
   }
+
   .guestRestrictions{
     text-align: center;
     margin-top: 10px;
@@ -457,7 +461,7 @@ fieldset div {
 
 @media (max-width: 550px) {
   h1 {
-    font-size: 2.7rem;
+    font-size: 2.5rem;
   }
 
   h3{
@@ -470,9 +474,19 @@ fieldset div {
     padding: 0 10px;
   }
 
+  .iconTextDiv {
+    flex-direction: column;
+  }
+
+  .faIcon {
+    padding-top: 10px;
+  }
+  .utensils {
+    order: 1;
+  }
+
   .buttonContainer{
-    margin: 50px auto;
-    
+    margin: 50px auto; 
   }
 
   .guestForm .checkboxes label {
@@ -481,6 +495,21 @@ fieldset div {
 }
 
 @media (max-width: 494px){
+  .textContainer {
+    padding-bottom: 30px;
+  }
+
+  .partyForm fieldset,
+  .guestNameBox {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .partyForm input,
+  .guestNameBox input {
+    width: 100%;
+  }
+
   .guestForm .checkboxes{
     justify-content: center;
   }

@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCdB430D3OZ0iNd1yx2SUdmTcVH8jq7B-w",
   authDomain: "loveinatimeofallergies.firebaseapp.com",
