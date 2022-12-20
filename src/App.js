@@ -4,7 +4,6 @@ import Header from "./components/Header.js";
 import PartyForm from "./components/PartyForm.js";
 import Checkboxes from "./components/Checkboxes.js";
 import Dropdown from "./components/Dropdown.js";
-import GuestList from "./components/GuestList.js";
 import RecipeDisplay from "./components/RecipeDisplay.js";
 import Footer from "./components/Footer.js";
 import { useEffect, useState } from "react";
