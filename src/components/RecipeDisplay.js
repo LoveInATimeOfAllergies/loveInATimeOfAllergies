@@ -1,6 +1,6 @@
 const RecipeDisplay = ({ recipes }) => {
   return (
-    <section className="Recipe ">
+    <section className="Recipe">
       <ul className="recipeList wrapper">
         {recipes.map((recipeObject) => {
           return (

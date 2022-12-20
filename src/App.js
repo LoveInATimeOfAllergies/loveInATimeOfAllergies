@@ -11,11 +11,11 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import './components/FontAwesomeIcon.js'
 
-//
 function App() {
   // Bringing in firebase database to our component
   const database = getDatabase(app);
   const dbRef = ref(database);
+
   // Setting up states
   const [partyInput, setPartyInput] = useState("");
 
@@ -26,6 +26,7 @@ function App() {
 
   const [recipes, setRecipes] = useState([]);
 
+  // Collect data from Database
   useEffect(() => {
     onValue(dbRef, (response) => {
       const partyData = response.val();
@@ -78,41 +79,31 @@ function App() {
 
   return (
     <div className="App">
-      <div className="wrapper">
-        <Header />
+      <Header />
+      <main>
+        <section className="forms">
+            <PartyForm
+              partyInput={partyInput}
+              setPartyInput={setPartyInput}
+            />
+            <Checkboxes
+              partyInput={partyInput}
+            />
+        </section>
         
-        <main>
-          <PartyForm
-            partyInput={partyInput}
-            setPartyInput={setPartyInput}
+        <section className="partyPreview">
+          <Dropdown
+            userChoice={userChoice}
+            setUserChoice={setUserChoice}
+            partyDataList={partyDataList}
+            guest={guest}
+            setRecipes={setRecipes}
           />
-
-          <Checkboxes
-            partyInput={partyInput}
-          />
-
-          <section className="partyPreview">
-            <Dropdown
-              userChoice={userChoice}
-              setUserChoice={setUserChoice}
-              partyDataList={partyDataList}
-              guest={guest}
-              setRecipes={setRecipes}
-            />
-            
-            <GuestList
-              guest={guest}
-              userChoice={userChoice}
-            />
-          </section>
-
-          <RecipeDisplay
+        </section>
+        <RecipeDisplay
             recipes={recipes}
-          />
-
-        </main>
-      </div>
-
+        />
+      </main>
       <Footer />
     </div>
   );

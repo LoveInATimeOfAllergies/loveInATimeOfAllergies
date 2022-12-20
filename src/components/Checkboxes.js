@@ -74,7 +74,6 @@ const Checkboxes = (props) => {
       };
       push(childNodeRef, newUser);
 
-      // push(dbRef, userProfile)
       setNameInput("");
       // Specifically for the checkbox checkmarks to go away
       document.getElementById("alcoholFree").checked = false;
@@ -132,299 +131,308 @@ const Checkboxes = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="guestForm">
-      <div className="guestNameBox">
-        <label htmlFor="nameField">Guest Name: </label>
-        <input
-          type="text"
-          id="nameField"
-          value={nameInput}
-          onChange={(e) => setNameInput(e.target.value)}
-          placeholder="John Smith"
-        />
+    <div className="checkBoxContainer">
+      <div className="wrapper">
+      <form onSubmit={handleSubmit} className="guestForm">
+        <div className="guestNameBox">
+          <label htmlFor="nameField">Guest Name: </label>
+          <input
+            type="text"
+            id="nameField"
+            value={nameInput}
+            onChange={(e) => setNameInput(e.target.value)}
+            placeholder="John Smith"
+          />
+          </div>
+
+          <div className="checkboxes">
+            <label htmlFor="alcoholFree">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="alcoholFree"
+                value={alcoholFree}
+                onChange={(e) => setAlcholFree(e.target.checked)}
+              />
+              Alcohol-Free
+            </label>
+
+            <label htmlFor="celeryFree">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="celeryFree"
+                value={celeryFree}
+                onChange={(e) => setCeleryFree(e.target.checked)}
+              />
+              Celery-Free
+            </label>
+
+            <label htmlFor="crustaceanFree">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="crustaceanFree"
+                value={crustaceanFree}
+                onChange={(e) => setCrustaceanFree(e.target.checked)}
+              />
+              Crustacean-Free
+            </label>
+
+            <label htmlFor="dairyFree">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="dairyFree"
+                value={dairyFree}
+                onChange={(e) => setDairyFree(e.target.checked)}
+              />
+              Dairy-Free
+            </label>
+
+            <label htmlFor="eggFree">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="eggFree"
+                value={eggFree}
+                onChange={(e) => setEggFree(e.target.checked)}
+              />
+              Egg-Free
+            </label>
+
+            <label htmlFor="fishFree">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="fishFree"
+                value={fishFree}
+                onChange={(e) => setFishFree(e.target.checked)}
+              />
+              Fish-Free
+            </label>
+
+            <label htmlFor="fodmapFree">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="fodmapFree"
+                value={fodmapFree}
+                onChange={(e) => setFodmapFree(e.target.checked)}
+              />
+              FODMAP-Free
+            </label>
+
+            <label htmlFor="glutenFree">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="glutenFree"
+                value={glutenFree}
+                onChange={(e) => setGlutenFree(e.target.checked)}
+              />
+              Gluten-Free
+            </label>
+
+            <label htmlFor="kidneyFriendly">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="kidneyFriendly"
+                value={kidneyFriendly}
+                onChange={(e) => setKidneyFriendly(e.target.checked)}
+              />
+              Kidney-Friendly
+            </label>
+
+            <label htmlFor="kosher">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="kosher"
+                value={kosher}
+                onChange={(e) => setKosher(e.target.checked)}
+              />
+              Kosher
+            </label>
+
+            <label htmlFor="lupineFree">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="lupineFree"
+                value={lupineFree}
+                onChange={(e) => setLupineFree(e.target.checked)}
+              />
+              Lupine-Free
+            </label>
+
+            <label htmlFor="molluskFree">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="molluskFree"
+                value={molluskFree}
+                onChange={(e) => setMolluskFree(e.target.checked)}
+              />
+              Mollusk-Free
+            </label>
+
+            <label htmlFor="mustardFree">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="mustardFree"
+                value={mustardFree}
+                onChange={(e) => setMustardFree(e.target.checked)}
+              />
+              Mustard-Free
+            </label>
+
+            <label htmlFor="peanutFree">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="peanutFree"
+                value={peanutFree}
+                onChange={(e) => setPeanutFree(e.target.checked)}
+              />
+              Peanut-Free
+            </label>
+
+            <label htmlFor="pescatarian">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="pescatarian"
+                value={pescatarian}
+                onChange={(e) => setPescatarian(e.target.checked)}
+              />
+              Pescatarian
+            </label>
+
+            <label htmlFor="porkFree">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="porkFree"
+                value={porkFree}
+                onChange={(e) => setPorkFree(e.target.checked)}
+              />
+              Pork-Free
+            </label>
+
+            <label htmlFor="redMeatFree">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="redMeatFree"
+                value={redMeatFree}
+                onChange={(e) => setRedMeatFree(e.target.checked)}
+              />
+              Red-Meat-Free
+            </label>
+
+            <label htmlFor="sesameFree">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="sesameFree"
+                value={sesameFree}
+                onChange={(e) => setSesameFree(e.target.checked)}
+              />
+              Sesame-Free
+            </label>
+
+            <label htmlFor="shellfishFree">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="shellfishFree"
+                value={shellfishFree}
+                onChange={(e) => setShellFishFree(e.target.checked)}
+              />
+              Shellfish-Free
+            </label>
+
+            <label htmlFor="soyFree">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="soyFree"
+                value={soyFree}
+                onChange={(e) => setSoyFree(e.target.checked)}
+              />
+              Soy-Free
+            </label>
+
+            <label htmlFor="sulfiteFree">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="sulfiteFree"
+                value={sulfiteFree}
+                onChange={(e) => setSulfiteFree(e.target.checked)}
+              />
+              Sulfite-Free
+            </label>
+
+            <label htmlFor="treeNutFree">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="treeNutFree"
+                value={treeNutFree}
+                onChange={(e) => setTreeNutFree(e.target.checked)}
+              />
+              Tree-Nut-Free
+            </label>
+
+            <label htmlFor="vegan">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="vegan"
+                value={vegan}
+                onChange={(e) => setVegan(e.target.checked)}
+              />
+              Vegan
+            </label>
+
+            <label htmlFor="vegetarian">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="vegetarian"
+                value={vegetarian}
+                onChange={(e) => setVegetarian(e.target.checked)}
+              />
+              Vegetarian
+            </label>
+
+            <label htmlFor="wheatFree">
+              <input
+                type="checkbox"
+                name="allergies"
+                id="wheatFree"
+                value={wheatFree}
+                onChange={(e) => setWheatFree(e.target.checked)}
+              />
+              Wheat-Free
+            </label>
+          </div>
+
+          <div className="buttonContainer">
+            <button className="btn">Submit</button>
+          </div>
+        </form>
       </div>
-
-      <div className="checkboxes">
-        <label htmlFor="alcoholFree">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="alcoholFree"
-            value={alcoholFree}
-            onChange={(e) => setAlcholFree(e.target.checked)}
-          />
-          Alcohol-Free
-        </label>
-
-        <label htmlFor="celeryFree">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="celeryFree"
-            value={celeryFree}
-            onChange={(e) => setCeleryFree(e.target.checked)}
-          />
-          Celery-Free
-        </label>
-
-        <label htmlFor="crustaceanFree">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="crustaceanFree"
-            value={crustaceanFree}
-            onChange={(e) => setCrustaceanFree(e.target.checked)}
-          />
-          Crustcean-Free
-        </label>
-
-        <label htmlFor="dairyFree">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="dairyFree"
-            value={dairyFree}
-            onChange={(e) => setDairyFree(e.target.checked)}
-          />
-          Dairy-Free
-        </label>
-
-        <label htmlFor="eggFree">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="eggFree"
-            value={eggFree}
-            onChange={(e) => setEggFree(e.target.checked)}
-          />
-          Egg-Free
-        </label>
-
-        <label htmlFor="fishFree">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="fishFree"
-            value={fishFree}
-            onChange={(e) => setFishFree(e.target.checked)}
-          />
-          Fish-Free
-        </label>
-
-        <label htmlFor="fodmapFree">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="fodmapFree"
-            value={fodmapFree}
-            onChange={(e) => setFodmapFree(e.target.checked)}
-          />
-          FODMAP-Free
-        </label>
-
-        <label htmlFor="glutenFree">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="glutenFree"
-            value={glutenFree}
-            onChange={(e) => setGlutenFree(e.target.checked)}
-          />
-          Gluten-Free
-        </label>
-
-        <label htmlFor="kidneyFriendly">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="kidneyFriendly"
-            value={kidneyFriendly}
-            onChange={(e) => setKidneyFriendly(e.target.checked)}
-          />
-          Kidney-Friendly
-        </label>
-
-        <label htmlFor="kosher">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="kosher"
-            value={kosher}
-            onChange={(e) => setKosher(e.target.checked)}
-          />
-          Kosher
-        </label>
-
-        <label htmlFor="lupineFree">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="lupineFree"
-            value={lupineFree}
-            onChange={(e) => setLupineFree(e.target.checked)}
-          />
-          Lupine-Free
-        </label>
-
-        <label htmlFor="molluskFree">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="molluskFree"
-            value={molluskFree}
-            onChange={(e) => setMolluskFree(e.target.checked)}
-          />
-          Mollusk-Free
-        </label>
-
-        <label htmlFor="mustardFree">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="mustardFree"
-            value={mustardFree}
-            onChange={(e) => setMustardFree(e.target.checked)}
-          />
-          Mustard-Free
-        </label>
-
-        <label htmlFor="peanutFree">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="peanutFree"
-            value={peanutFree}
-            onChange={(e) => setPeanutFree(e.target.checked)}
-          />
-          Peanut-Free
-        </label>
-
-        <label htmlFor="pescatarian">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="pescatarian"
-            value={pescatarian}
-            onChange={(e) => setPescatarian(e.target.checked)}
-          />
-          Pescatarian
-        </label>
-
-        <label htmlFor="porkFree">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="porkFree"
-            value={porkFree}
-            onChange={(e) => setPorkFree(e.target.checked)}
-          />
-          Pork-Free
-        </label>
-
-        <label htmlFor="redMeatFree">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="redMeatFree"
-            value={redMeatFree}
-            onChange={(e) => setRedMeatFree(e.target.checked)}
-          />
-          Red-Meat-Free
-        </label>
-
-        <label htmlFor="sesameFree">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="sesameFree"
-            value={sesameFree}
-            onChange={(e) => setSesameFree(e.target.checked)}
-          />
-          Sesame-Free
-        </label>
-
-        <label htmlFor="shellfishFree">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="shellfishFree"
-            value={shellfishFree}
-            onChange={(e) => setShellFishFree(e.target.checked)}
-          />
-          Shellfish-Free
-        </label>
-
-        <label htmlFor="soyFree">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="soyFree"
-            value={soyFree}
-            onChange={(e) => setSoyFree(e.target.checked)}
-          />
-          Soy-Free
-        </label>
-
-        <label htmlFor="sulfiteFree">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="sulfiteFree"
-            value={sulfiteFree}
-            onChange={(e) => setSulfiteFree(e.target.checked)}
-          />
-          Sulfite-Free
-        </label>
-
-        <label htmlFor="treeNutFree">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="treeNutFree"
-            value={treeNutFree}
-            onChange={(e) => setTreeNutFree(e.target.checked)}
-          />
-          Tree-Nut-Free
-        </label>
-
-        <label htmlFor="vegan">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="vegan"
-            value={vegan}
-            onChange={(e) => setVegan(e.target.checked)}
-          />
-          Vegan
-        </label>
-
-        <label htmlFor="vegetarian">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="vegetarian"
-            value={vegetarian}
-            onChange={(e) => setVegetarian(e.target.checked)}
-          />
-          Vegetarian
-        </label>
-
-        <label htmlFor="wheatFree">
-          <input
-            type="checkbox"
-            name="allergies"
-            id="wheatFree"
-            value={wheatFree}
-            onChange={(e) => setWheatFree(e.target.checked)}
-          />
-          Wheat-Free
-        </label>
-      </div>
-
-      <div className="buttonContainer">
-        <button className="btn">Submit</button>
-      </div>
-    </form>
+      <div class="wave waveForms">
+          <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+              <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+          </svg>
+      </div> {/* END .wave */}
+    </div> 
   );
 };
 export default Checkboxes;
