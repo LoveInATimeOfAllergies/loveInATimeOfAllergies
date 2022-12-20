@@ -194,11 +194,13 @@ header p {
 
 footer {
   margin-top: 25px 0;
+  padding: 3px;
   background-color: #260755;
 }
 
 footer p {
   color: #D3CFE6;
+  font-size: 0.9rem;
 }
 
 /* Relative container for Wave SVG */
@@ -237,7 +239,7 @@ footer p {
 /* Relative container for Wave SVG */
 .checkBoxContainer {
   position: relative;
-  padding-bottom: 30px;
+  padding-bottom: 110px;
 }
 
 .guestForm .guestNameBox {
@@ -311,6 +313,10 @@ footer p {
 .dropdown {
     text-align: center;
     padding-bottom: 25px;
+}
+
+.dropdownForm fieldset {
+  padding-bottom: 50px;
 }
 
 fieldset div {
