@@ -13,8 +13,8 @@ const GuestList = ({ guest, userChoice }) => {
     
     <div className="guestList">
       {userChoice ?
-        <>
-          <h2>Party Summary</h2>
+        <div className="summaryContainer cssanimation">
+          <h2>Step 3: Review Your Party</h2>
           <ul className="partySummary">
             <li className="guestName">
               <h3>Name</h3>
@@ -31,7 +31,7 @@ const GuestList = ({ guest, userChoice }) => {
               />
             </li>
           </ul>
-        </>
+        </div>
       : null}
     </div>
   )

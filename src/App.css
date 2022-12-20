@@ -42,6 +42,17 @@ li {
   width: 100%;
 }
 
+label {
+  margin-right: 10px;
+}
+
+input {
+  border: none;
+  padding: 5px 15px ;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
 fieldset, button {
   border: none;
 }
@@ -52,7 +63,25 @@ fieldset, button {
 
 }
 
+.btn {
+  padding: 15px;
+  border-radius: 40px;
+  background-color: #871A3E;
+  color: white;
+  text-transform: uppercase;
+  transition: all .3s;
+  cursor: pointer;
+  width: 222px;
+}
+
+.btn:hover, 
+.btn:focus {
+  background-color: #260755;
+}
+
 /* Huge thanks to the Shape Divider App at https://www.shapedivider.app/ for the easy wave shaped SVG */
+
+/* Wave SVG used in Header and Party Preview sections */
 
 .wave {
   position: absolute;
@@ -62,6 +91,7 @@ fieldset, button {
   overflow: hidden;
   line-height: 0;
   transform: rotate(180deg);
+  fill: #D3CFE6;
 }
 
 .wave svg {
@@ -71,9 +101,29 @@ fieldset, button {
   height: 147px;
 }
 
-.wave .shape-fill {
-  fill: #D3CFE6;
+/* FWave SVG used in Forms section*/
+
+.waveForms {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
 }
+
+.waveForms svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 158px;
+}
+
+.waveForms {
+  fill: #260755;
+}
+
 
 /* Typography */
 h1 {
@@ -83,7 +133,11 @@ h1 {
   line-height: 1;
   margin-bottom: 20px;
   background: rgb(135,26,62);
-  background: linear-gradient(90deg, rgba(135,26,62,1) 0%, rgba(38,7,85,1) 100%);   
+  background: linear-gradient(
+    90deg, 
+    rgba(135,26,62,1) 0%, 
+    rgba(38,7,85,1) 100%
+    );   
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -109,13 +163,6 @@ h3 {
   padding-top: 10px;
 }
 
-input {
-  border: none;
-  padding: 5px 15px ;
-  border-radius: 20px;
-  margin-top: 10px;
-}
-
 a {
   font-family: "Lato", sans-serif;
   text-decoration: none;
@@ -133,6 +180,12 @@ p, legend, label, button {
   font-size: 1rem;
 }
 
+legend {
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+}
+
 /* Header & Footer */
 
 header p {
@@ -148,12 +201,12 @@ footer p {
   color: #D3CFE6;
 }
 
+/* Relative container for Wave SVG */
 .headerContainer {
   background-color: #F9F2ED;
   padding-bottom: 10%;
   position: relative;
 }
-
 
 .textContainer {
   display: flex;
@@ -165,8 +218,7 @@ footer p {
 
 .iconTextDiv {
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: center;
   width: 75%; 
   margin: 10px 0;
 }
@@ -181,6 +233,13 @@ footer p {
 }
 
 /* Checkboxes */
+
+/* Relative container for Wave SVG */
+.checkBoxContainer {
+  position: relative;
+  padding-bottom: 30px;
+}
+
 .guestForm .guestNameBox {
   margin: 10px 0;
 }
@@ -225,14 +284,27 @@ footer p {
   background-color: white;
 }
 
-
-
 /* Party Preview Section (includes Dropdown.js & GuestList.js component) */
+
+/* Relative container for Wave SVG */
 .partyPreview {
-    padding: 25px 0;
+    padding: 25px 0 100px 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    background-color: #260755;
+    position: relative;
+}
+
+.partyPreview h2, 
+.partyPreview legend,
+.partyPreview label {
+  color:#D3CFE6;
+}
+
+.partyPreview .btn:hover, 
+.partyPreview .btn:focus {
+  background-color: #D3CFE6;
+  color:#260755;
 }
 
 /* Dropdown component */
@@ -241,32 +313,15 @@ footer p {
     padding-bottom: 25px;
 }
 
-label {
-    margin-right: 10px;
-}
-
 fieldset div {
-    padding: 20px 0;
-}
-
-.btn {
-    padding: 15px;
-    border-radius: 40px;
-    background-color: #871A3E;
-    color: white;
-    text-transform: uppercase;
-    transition: all .3s;
-    cursor: pointer;
-    width: 222px;
-}
-
-.btn:hover, 
-.btn:focus {
-    background-color: #260755;
+  margin-bottom: 30px;
 }
 
 /* Guest List component */
 .guestList {
+  width: 100%;
+}
+.summaryContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -281,6 +336,7 @@ fieldset div {
     background-color: #F5F5F5;
     text-align: center;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
 }
 
 .partySummary li:first-child {
@@ -303,7 +359,6 @@ fieldset div {
 
 .guestRestrictions {
     text-align: left;
-    
 }
 
 /* RECIPE IMAGE STYLING */
@@ -333,7 +388,8 @@ fieldset div {
   box-shadow: 0 0 10px #948c90;
 }
 
-.individualRecipe:hover, .individualRecipe:focus-within {
+.individualRecipe:hover, 
+.individualRecipe:focus-within {
   transform: scale(1.08);
 }
 .individualRecipe img {
@@ -347,7 +403,8 @@ fieldset div {
   text-decoration: none;
 }
 
-.individualRecipe:hover p, .individualRecipe:focus-within p {
+.individualRecipe:hover p, 
+.individualRecipe:focus-within p {
   color: #871a3e;
 }
 
@@ -367,55 +424,40 @@ fieldset div {
   }
 }
 
+/* Media Queries */
 @media (max-width: 1150px) {
   .guestName {
     width: 30%;
-
-
   }
-
-   
-  
-
 }
-@media (max-width:750px) {
 
+@media (max-width:750px) {
   .guestName{
     width: 100%;
   }
   
-
   .partySummary {
     flex-direction: column;
-    
   }
 
+  .partySummary p:last-child{
+    border-bottom: 1px solid grey;
+  }
   .guestRestrictions{
     text-align: center;
     margin-top: 10px;
-   
-
   }
 
   .partySummary li:first-child {
     padding-left: 0px;
-
   }
 
   .partySummary li:last-child {
     padding-right: 0px;
-
   }
-
- 
-
-  
-
-  
 }
 
 @media (max-width: 550px) {
-
   h1 {
     font-size: 2.7rem;
   }
@@ -435,18 +477,13 @@ fieldset div {
     
   }
 
- 
-
   .guestForm .checkboxes label {
     width: 175px;
   }
-
- 
 }
 
 @media (max-width: 494px){
   .guestForm .checkboxes{
-    /* padding-left: 30%; */
     justify-content: center;
   }
 }
