@@ -34,6 +34,7 @@ html {
 section, fieldset, h1, h2, h3, p, ul, li, button {
   margin: 0;
   padding: 0;
+  transition: .3s;
 }
 
 li {
@@ -45,14 +46,48 @@ fieldset, button {
   border: none;
 }
 
+.faIcon {
+  font-size: 2rem;
+  color:#871A3E;
+
+}
+
+/* Huge thanks to the Shape Divider App at https://www.shapedivider.app/ for the easy wave shaped SVG */
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.wave svg {
+  position: relative;
+  display: block;
+  width: calc(139% + 1.3px);
+  height: 147px;
+}
+
+.wave .shape-fill {
+  fill: #D3CFE6;
+}
+
 /* Typography */
 h1 {
   font-family: 'Judson', serif;
-  color: #260755;
-  margin: 100px 0;
   letter-spacing: 1px;
   font-size: 3.5rem;
   line-height: 1;
+  margin-bottom: 20px;
+  background: rgb(135,26,62);
+  background: linear-gradient(90deg, rgba(135,26,62,1) 0%, rgba(38,7,85,1) 100%);   
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
 }
 
 h2, h3 {
@@ -74,6 +109,24 @@ h3 {
   padding-top: 10px;
 }
 
+input {
+  border: none;
+  padding: 5px 15px ;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+a {
+  font-family: "Lato", sans-serif;
+  text-decoration: none;
+  color: #D3CFE6;
+  transition: .3s;
+}
+
+a:hover, a:focus {
+  color: white;
+}
+
 p, legend, label, button {
   font-family: 'Lato', sans-serif;
   color: #260755;
@@ -81,13 +134,9 @@ p, legend, label, button {
 }
 
 /* Header & Footer */
-header p{
-  max-width: 75%; 
-  margin: 10px 0;
-}
 
-header{
-  margin-top: 25px 0;
+header p {
+  font-size: 1.1rem;
 }
 
 footer {
@@ -99,26 +148,27 @@ footer p {
   color: #D3CFE6;
 }
 
+.headerContainer {
+  background-color: #F9F2ED;
+  padding-bottom: 10%;
+  position: relative;
+}
+
+
 .textContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 15px;
-  border: solid #871A3E;
-  background-color: white;
   padding-top: 50px;
-  margin-bottom: 50px
 }
 
-a {
-  font-family: "Lato", sans-serif;
-  text-decoration: none;
-  color: #D3CFE6;
-}
-
-a:hover, a:focus {
-  color: white;
-  /* transition: .3s; */
+.iconTextDiv {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 75%; 
+  margin: 10px 0;
 }
 
 /* Party Form */
@@ -144,11 +194,9 @@ a:hover, a:focus {
   flex-wrap: wrap;
   text-align: left;
   justify-content: space-between;
-  /* margin: 15px; */
 }
 
 .guestForm .checkboxes label {
-  /* border-right: 5px solid #260755; */
   width: 200px;
   cursor: pointer;
 }
@@ -158,13 +206,6 @@ a:hover, a:focus {
   height: 20px;
   cursor: pointer;
   margin-right: 5px;
-}
-
-
-input {
-  border: none;
-  padding: 5px 10px ;
-  border-radius: 20px;
 }
 
 .checkboxes {
@@ -212,7 +253,7 @@ fieldset div {
     padding: 15px;
     border-radius: 40px;
     background-color: #871A3E;
-    color: #D3CFE6;
+    color: white;
     text-transform: uppercase;
     transition: all .3s;
     cursor: pointer;

@@ -78,8 +78,8 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <div className="wrapper">
-        <Header />
         
         <main>
           <PartyForm
