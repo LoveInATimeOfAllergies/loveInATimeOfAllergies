@@ -101,16 +101,9 @@ fieldset, button {
   height: 147px;
 }
 
-/* FWave SVG used in Forms section*/
-
+/* Wave SVG used in Forms section*/
 .waveForms {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  transform: rotate(180deg);
+  fill: #260755;
 }
 
 .waveForms svg {
@@ -119,11 +112,6 @@ fieldset, button {
   width: calc(100% + 1.3px);
   height: 158px;
 }
-
-.waveForms {
-  fill: #260755;
-}
-
 
 /* Typography */
 h1 {
@@ -187,7 +175,6 @@ legend {
 }
 
 /* Header & Footer */
-
 header p {
   font-size: 1.1rem;
 }
@@ -206,7 +193,7 @@ footer p {
 /* Relative container for Wave SVG */
 .headerContainer {
   background-color: #F9F2ED;
-  padding-bottom: 10%;
+  padding-bottom: 5%;
   position: relative;
 }
 
@@ -223,6 +210,10 @@ footer p {
   justify-content: center;
   width: 75%; 
   margin: 10px 0;
+}
+
+.hearts {
+  margin-top: 20px;
 }
 
 /* Party Form */
@@ -335,6 +326,7 @@ fieldset div {
     width: 100%;
 }
 
+/* Credit to Tiffany Rayside's Hand Drawn Border Effects Codepen for the border radius values here: https://codepen.io/tmrDevelops/pen/NPXodB */
 .partySummary {
     display: flex;
     justify-content: center;
