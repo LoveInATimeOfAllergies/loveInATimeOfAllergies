@@ -7,31 +7,37 @@ const Checkboxes = (props) => {
 
   const [nameInput, setNameInput] = useState("");
   /////// checkboxes ///////
-  const [alcoholFree, setAlcholFree] = useState(false);
-  const [celeryFree, setCeleryFree] = useState(false);
-  const [crustaceanFree, setCrustaceanFree] = useState(false);
-  const [dairyFree, setDairyFree] = useState(false);
-  const [eggFree, setEggFree] = useState(false);
-  const [fishFree, setFishFree] = useState(false);
-  const [fodmapFree, setFodmapFree] = useState(false);
-  const [glutenFree, setGlutenFree] = useState(false);
-  const [kidneyFriendly, setKidneyFriendly] = useState(false);
-  const [kosher, setKosher] = useState(false);
-  const [lupineFree, setLupineFree] = useState(false);
-  const [molluskFree, setMolluskFree] = useState(false);
-  const [mustardFree, setMustardFree] = useState(false);
-  const [peanutFree, setPeanutFree] = useState(false);
-  const [pescatarian, setPescatarian] = useState(false);
-  const [porkFree, setPorkFree] = useState(false);
-  const [redMeatFree, setRedMeatFree] = useState(false);
-  const [sesameFree, setSesameFree] = useState(false);
-  const [shellfishFree, setShellFishFree] = useState(false);
-  const [soyFree, setSoyFree] = useState(false);
-  const [sulfiteFree, setSulfiteFree] = useState(false);
-  const [treeNutFree, setTreeNutFree] = useState(false);
-  const [vegan, setVegan] = useState(false);
-  const [vegetarian, setVegetarian] = useState(false);
-  const [wheatFree, setWheatFree] = useState(false);
+  const [userProfile, setUserProfile] = useState({
+    alcoholFree: false,
+    celeryFree: false,
+    crustaceanFree: false,
+    dairyFree: false,
+    eggFree: false,
+    fishFree: false,
+    fodmapFree: false,
+    glutenFree: false,
+    kidneyFriendly: false,
+    kosher: false,
+    lupineFree: false,
+    molluskFree: false,
+    mustardFree: false,
+    peanutFree: false,
+    pescatarian: false,
+    porkFree: false,
+    redMeatFree: false,
+    sesameFree: false,
+    shellfishFree: false,
+    soyFree: false,
+    sulfiteFree: false,
+    treeNutFree: false,
+    vegan: false,
+    vegetarian: false,
+    wheatFree: false
+  })
+
+  const handleChange = (e) => {
+    setUserProfile({...userProfile, [e.target.name]: e.target.checked})
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,31 +52,31 @@ const Checkboxes = (props) => {
       const childNodeRef = ref(database, `/${props.partyInput}`);
       const newUser = {
         user: nameInput,
-        alcoholFree: alcoholFree ? "alcohol-free" : null,
-        celeryFree: celeryFree ? "celery-free" : null,
-        crustaceanFree: crustaceanFree ? "crustacean-free" : null,
-        dairyFree: dairyFree ? "dairy-free" : null,
-        eggFree: eggFree ? "egg-free" : null,
-        fishFree: fishFree ? "fish-free" : null,
-        fodmapFree: fodmapFree ? "fodmap-free" : null,
-        glutenFree: glutenFree ? "gluten-free" : null,
-        kidneyFriendly: kidneyFriendly ? "kidney-friendly" : null,
-        kosher: kosher ? "kosher" : null,
-        lupineFree: lupineFree ? "lupine-free" : null,
-        molluskFree: molluskFree ? "mollusk-free" : null,
-        mustardFree: mustardFree ? "mustard-free" : null,
-        peanutFree: peanutFree ? "peanut-free" : null,
-        pescatarian: pescatarian ? "pescatarian" : null,
-        porkFree: porkFree ? "pork-free" : null,
-        redMeatFree: redMeatFree ? "red-meat-free" : null,
-        sesameFree: sesameFree ? "sesame-free" : null,
-        shellfishFree: shellfishFree ? "shellfish-free" : null,
-        soyFree: soyFree ? "soy-free" : null,
-        sulfiteFree: sulfiteFree ? "sulfite-free" : null,
-        treeNutFree: treeNutFree ? "tree-nut-free" : null,
-        vegan: vegan ? "vegan" : null,
-        vegetarian: vegetarian ? "vegetarian" : null,
-        wheatFree: wheatFree ? "wheat-free" : null,
+        alcoholFree: userProfile.alcoholFree ? "alcohol-free" : null,
+        celeryFree: userProfile.celeryFree ? "celery-free" : null,
+        crustaceanFree: userProfile.crustaceanFree ? "crustacean-free" : null,
+        dairyFree: userProfile.dairyFree ? "dairy-free" : null,
+        eggFree: userProfile.eggFree ? "egg-free" : null,
+        fishFree: userProfile.fishFree ? "fish-free" : null,
+        fodmapFree: userProfile.fodmapFree ? "fodmap-free" : null,
+        glutenFree: userProfile.glutenFree ? "gluten-free" : null,
+        kidneyFriendly: userProfile.kidneyFriendly ? "kidney-friendly" : null,
+        kosher: userProfile.kosher ? "kosher" : null,
+        lupineFree: userProfile.lupineFree ? "lupine-free" : null,
+        molluskFree: userProfile.molluskFree ? "mollusk-free" : null,
+        mustardFree: userProfile.mustardFree ? "mustard-free" : null,
+        peanutFree: userProfile.peanutFree ? "peanut-free" : null,
+        pescatarian: userProfile.pescatarian ? "pescatarian" : null,
+        porkFree: userProfile.porkFree ? "pork-free" : null,
+        redMeatFree: userProfile.redMeatFree ? "red-meat-free" : null,
+        sesameFree: userProfile.sesameFree ? "sesame-free" : null,
+        shellfishFree: userProfile.shellfishFree ? "shellfish-free" : null,
+        soyFree: userProfile.soyFree ? "soy-free" : null,
+        sulfiteFree: userProfile.sulfiteFree ? "sulfite-free" : null,
+        treeNutFree: userProfile.treeNutFree ? "tree-nut-free" : null,
+        vegan: userProfile.vegan ? "vegan" : null,
+        vegetarian: userProfile.vegetarian ? "vegetarian" : null,
+        wheatFree: userProfile.wheatFree ? "wheat-free" : null,
       };
       push(childNodeRef, newUser);
 
@@ -102,31 +108,33 @@ const Checkboxes = (props) => {
       document.getElementById("vegetarian").checked = false;
       document.getElementById("wheatFree").checked = false;
       // Specifically to change the states back to false
-      setAlcholFree(false);
-      setCeleryFree(false);
-      setCrustaceanFree(false);
-      setDairyFree(false);
-      setEggFree(false);
-      setFishFree(false);
-      setFodmapFree(false);
-      setGlutenFree(false);
-      setKidneyFriendly(false);
-      setKosher(false);
-      setLupineFree(false);
-      setMolluskFree(false);
-      setMustardFree(false);
-      setPeanutFree(false);
-      setPescatarian(false);
-      setPorkFree(false);
-      setRedMeatFree(false);
-      setSesameFree(false);
-      setShellFishFree(false);
-      setSoyFree(false);
-      setSulfiteFree(false);
-      setTreeNutFree(false);
-      setVegan(false);
-      setVegetarian(false);
-      setWheatFree(false);
+      setUserProfile({
+        alcoholFree: false,
+        celeryFree: false,
+        crustaceanFree: false,
+        dairyFree: false,
+        eggFree: false,
+        fishFree: false,
+        fodmapFree: false,
+        glutenFree: false,
+        kidneyFriendly: false,
+        kosher: false,
+        lupineFree: false,
+        molluskFree: false,
+        mustardFree: false,
+        peanutFree: false,
+        pescatarian: false,
+        porkFree: false,
+        redMeatFree: false,
+        sesameFree: false,
+        shellfishFree: false,
+        soyFree: false,
+        sulfiteFree: false,
+        treeNutFree: false,
+        vegan: false,
+        vegetarian: false,
+        wheatFree: false
+      })
     }
   };
 
@@ -149,10 +157,10 @@ const Checkboxes = (props) => {
             <label htmlFor="alcoholFree">
               <input
                 type="checkbox"
-                name="allergies"
+                name="alcoholFree"
                 id="alcoholFree"
-                value={alcoholFree}
-                onChange={(e) => setAlcholFree(e.target.checked)}
+                value={userProfile.alcoholFree}
+                onChange={handleChange}
               />
               Alcohol-Free
             </label>
@@ -160,10 +168,10 @@ const Checkboxes = (props) => {
             <label htmlFor="celeryFree">
               <input
                 type="checkbox"
-                name="allergies"
+                name="celeryFree"
                 id="celeryFree"
-                value={celeryFree}
-                onChange={(e) => setCeleryFree(e.target.checked)}
+                value={userProfile.celeryFree}
+                onChange={handleChange}
               />
               Celery-Free
             </label>
@@ -171,10 +179,10 @@ const Checkboxes = (props) => {
             <label htmlFor="crustaceanFree">
               <input
                 type="checkbox"
-                name="allergies"
+                name="crustaceanFree"
                 id="crustaceanFree"
-                value={crustaceanFree}
-                onChange={(e) => setCrustaceanFree(e.target.checked)}
+                value={userProfile.crustaceanFree}
+                onChange={handleChange}
               />
               Crustacean-Free
             </label>
@@ -182,10 +190,10 @@ const Checkboxes = (props) => {
             <label htmlFor="dairyFree">
               <input
                 type="checkbox"
-                name="allergies"
+                name="dairyFree"
                 id="dairyFree"
-                value={dairyFree}
-                onChange={(e) => setDairyFree(e.target.checked)}
+                value={userProfile.dairyFree}
+                onChange={handleChange}
               />
               Dairy-Free
             </label>
@@ -193,10 +201,10 @@ const Checkboxes = (props) => {
             <label htmlFor="eggFree">
               <input
                 type="checkbox"
-                name="allergies"
+                name="eggFree"
                 id="eggFree"
-                value={eggFree}
-                onChange={(e) => setEggFree(e.target.checked)}
+                value={userProfile.eggFree}
+                onChange={handleChange}
               />
               Egg-Free
             </label>
@@ -204,10 +212,10 @@ const Checkboxes = (props) => {
             <label htmlFor="fishFree">
               <input
                 type="checkbox"
-                name="allergies"
+                name="fishFree"
                 id="fishFree"
-                value={fishFree}
-                onChange={(e) => setFishFree(e.target.checked)}
+                value={userProfile.fishFree}
+                onChange={handleChange}
               />
               Fish-Free
             </label>
@@ -215,10 +223,10 @@ const Checkboxes = (props) => {
             <label htmlFor="fodmapFree">
               <input
                 type="checkbox"
-                name="allergies"
+                name="fodmapFree"
                 id="fodmapFree"
-                value={fodmapFree}
-                onChange={(e) => setFodmapFree(e.target.checked)}
+                value={userProfile.fodmapFree}
+                onChange={handleChange}
               />
               FODMAP-Free
             </label>
@@ -226,10 +234,10 @@ const Checkboxes = (props) => {
             <label htmlFor="glutenFree">
               <input
                 type="checkbox"
-                name="allergies"
+                name="glutenFree"
                 id="glutenFree"
-                value={glutenFree}
-                onChange={(e) => setGlutenFree(e.target.checked)}
+                value={userProfile.glutenFree}
+                onChange={handleChange}
               />
               Gluten-Free
             </label>
@@ -237,10 +245,10 @@ const Checkboxes = (props) => {
             <label htmlFor="kidneyFriendly">
               <input
                 type="checkbox"
-                name="allergies"
+                name="kidneyFriendly"
                 id="kidneyFriendly"
-                value={kidneyFriendly}
-                onChange={(e) => setKidneyFriendly(e.target.checked)}
+                value={userProfile.kidneyFriendly}
+                onChange={handleChange}
               />
               Kidney-Friendly
             </label>
@@ -248,10 +256,10 @@ const Checkboxes = (props) => {
             <label htmlFor="kosher">
               <input
                 type="checkbox"
-                name="allergies"
+                name="kosher"
                 id="kosher"
-                value={kosher}
-                onChange={(e) => setKosher(e.target.checked)}
+                value={userProfile.kosher}
+                onChange={handleChange}
               />
               Kosher
             </label>
@@ -259,10 +267,10 @@ const Checkboxes = (props) => {
             <label htmlFor="lupineFree">
               <input
                 type="checkbox"
-                name="allergies"
+                name="lupineFree"
                 id="lupineFree"
-                value={lupineFree}
-                onChange={(e) => setLupineFree(e.target.checked)}
+                value={userProfile.lupineFree}
+                onChange={handleChange}
               />
               Lupine-Free
             </label>
@@ -270,10 +278,10 @@ const Checkboxes = (props) => {
             <label htmlFor="molluskFree">
               <input
                 type="checkbox"
-                name="allergies"
+                name="molluskFree"
                 id="molluskFree"
-                value={molluskFree}
-                onChange={(e) => setMolluskFree(e.target.checked)}
+                value={userProfile.molluskFree}
+                onChange={handleChange}
               />
               Mollusk-Free
             </label>
@@ -281,10 +289,10 @@ const Checkboxes = (props) => {
             <label htmlFor="mustardFree">
               <input
                 type="checkbox"
-                name="allergies"
+                name="mustardFree"
                 id="mustardFree"
-                value={mustardFree}
-                onChange={(e) => setMustardFree(e.target.checked)}
+                value={userProfile.mustardFree}
+                onChange={handleChange}
               />
               Mustard-Free
             </label>
@@ -292,10 +300,10 @@ const Checkboxes = (props) => {
             <label htmlFor="peanutFree">
               <input
                 type="checkbox"
-                name="allergies"
+                name="peanutFree"
                 id="peanutFree"
-                value={peanutFree}
-                onChange={(e) => setPeanutFree(e.target.checked)}
+                value={userProfile.peanutFree}
+                onChange={handleChange}
               />
               Peanut-Free
             </label>
@@ -303,10 +311,10 @@ const Checkboxes = (props) => {
             <label htmlFor="pescatarian">
               <input
                 type="checkbox"
-                name="allergies"
+                name="pescatarian"
                 id="pescatarian"
-                value={pescatarian}
-                onChange={(e) => setPescatarian(e.target.checked)}
+                value={userProfile.pescatarian}
+                onChange={handleChange}
               />
               Pescatarian
             </label>
@@ -314,10 +322,10 @@ const Checkboxes = (props) => {
             <label htmlFor="porkFree">
               <input
                 type="checkbox"
-                name="allergies"
+                name="porkFree"
                 id="porkFree"
-                value={porkFree}
-                onChange={(e) => setPorkFree(e.target.checked)}
+                value={userProfile.porkFree}
+                onChange={handleChange}
               />
               Pork-Free
             </label>
@@ -325,10 +333,10 @@ const Checkboxes = (props) => {
             <label htmlFor="redMeatFree">
               <input
                 type="checkbox"
-                name="allergies"
+                name="redMeatFree"
                 id="redMeatFree"
-                value={redMeatFree}
-                onChange={(e) => setRedMeatFree(e.target.checked)}
+                value={userProfile.redMeatFree}
+                onChange={handleChange}
               />
               Red-Meat-Free
             </label>
@@ -336,10 +344,10 @@ const Checkboxes = (props) => {
             <label htmlFor="sesameFree">
               <input
                 type="checkbox"
-                name="allergies"
+                name="sesameFree"
                 id="sesameFree"
-                value={sesameFree}
-                onChange={(e) => setSesameFree(e.target.checked)}
+                value={userProfile.sesameFree}
+                onChange={handleChange}
               />
               Sesame-Free
             </label>
@@ -347,10 +355,10 @@ const Checkboxes = (props) => {
             <label htmlFor="shellfishFree">
               <input
                 type="checkbox"
-                name="allergies"
+                name="shellfishFree"
                 id="shellfishFree"
-                value={shellfishFree}
-                onChange={(e) => setShellFishFree(e.target.checked)}
+                value={userProfile.shellfishFree}
+                onChange={handleChange}
               />
               Shellfish-Free
             </label>
@@ -358,10 +366,10 @@ const Checkboxes = (props) => {
             <label htmlFor="soyFree">
               <input
                 type="checkbox"
-                name="allergies"
+                name="soyFree"
                 id="soyFree"
-                value={soyFree}
-                onChange={(e) => setSoyFree(e.target.checked)}
+                value={userProfile.soyFree}
+                onChange={handleChange}
               />
               Soy-Free
             </label>
@@ -369,10 +377,10 @@ const Checkboxes = (props) => {
             <label htmlFor="sulfiteFree">
               <input
                 type="checkbox"
-                name="allergies"
+                name="sulfiteFree"
                 id="sulfiteFree"
-                value={sulfiteFree}
-                onChange={(e) => setSulfiteFree(e.target.checked)}
+                value={userProfile.sulfiteFree}
+                onChange={handleChange}
               />
               Sulfite-Free
             </label>
@@ -380,10 +388,10 @@ const Checkboxes = (props) => {
             <label htmlFor="treeNutFree">
               <input
                 type="checkbox"
-                name="allergies"
+                name="treeNutFree"
                 id="treeNutFree"
-                value={treeNutFree}
-                onChange={(e) => setTreeNutFree(e.target.checked)}
+                value={userProfile.treeNutFree}
+                onChange={handleChange}
               />
               Tree-Nut-Free
             </label>
@@ -391,10 +399,10 @@ const Checkboxes = (props) => {
             <label htmlFor="vegan">
               <input
                 type="checkbox"
-                name="allergies"
+                name="vegan"
                 id="vegan"
-                value={vegan}
-                onChange={(e) => setVegan(e.target.checked)}
+                value={userProfile.vegan}
+                onChange={handleChange}
               />
               Vegan
             </label>
@@ -402,10 +410,10 @@ const Checkboxes = (props) => {
             <label htmlFor="vegetarian">
               <input
                 type="checkbox"
-                name="allergies"
+                name="vegetarian"
                 id="vegetarian"
-                value={vegetarian}
-                onChange={(e) => setVegetarian(e.target.checked)}
+                value={userProfile.vegetarian}
+                onChange={handleChange}
               />
               Vegetarian
             </label>
@@ -413,10 +421,10 @@ const Checkboxes = (props) => {
             <label htmlFor="wheatFree">
               <input
                 type="checkbox"
-                name="allergies"
+                name="wheatFree"
                 id="wheatFree"
-                value={wheatFree}
-                onChange={(e) => setWheatFree(e.target.checked)}
+                value={userProfile.wheatFree}
+                onChange={handleChange}
               />
               Wheat-Free
             </label>
@@ -427,7 +435,7 @@ const Checkboxes = (props) => {
           </div>
         </form>
       </div>
-      <div class="wave waveForms">
+      <div className="wave waveForms">
           <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
               <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
           </svg>
