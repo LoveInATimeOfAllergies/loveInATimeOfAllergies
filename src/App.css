@@ -325,6 +325,12 @@ fieldset div {
     width: 100%;
 }
 
+.guestName {
+  text-align: left;
+  width: 50%;
+  padding-left: 50px;
+}
+
 /* Credit to Tiffany Rayside's Hand Drawn Border Effects Codepen for the border radius values here: https://codepen.io/tmrDevelops/pen/NPXodB */
 .partySummary {
     display: flex;
@@ -336,22 +342,10 @@ fieldset div {
     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
 }
 
-.partySummary li:first-child {
-    padding-left: 20px;
-}
-
-.partySummary li:last-child {
-    padding-right: 20px;
-}
-
 .partySummary p {
     color: grey;
     text-transform: capitalize;
     padding: 5px;
-}
-
-.partySummary p:not(:last-child) {
-  border-bottom: grey 1px solid;
 }
 
 .guestRestrictions {
@@ -426,6 +420,10 @@ fieldset div {
   .guestName {
     width: 30%;
   }
+  
+  .partySummary {
+    width: 100%;
+  }
 }
 
 @media (max-width:750px) {
@@ -435,27 +433,16 @@ fieldset div {
   
   .guestName{
     width: 100%;
+    text-align: center;
   }
   
   .partySummary {
     flex-direction: column;
   }
 
-  .partySummary p:last-child{
-    border-bottom: 1px solid grey;
-  }
-
   .guestRestrictions{
     text-align: center;
     margin-top: 10px;
-  }
-
-  .partySummary li:first-child {
-    padding-left: 0px;
-  }
-
-  .partySummary li:last-child {
-    padding-right: 0px;
   }
 }
 
