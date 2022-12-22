@@ -50,6 +50,7 @@ const Checkboxes = (props) => {
     }
     else {
       const childNodeRef = ref(database, `/${props.partyInput}`);
+      // Use of kebab case here to match with the values used by the API health labels
       const newUser = {
         user: nameInput,
         alcoholFree: userProfile.alcoholFree ? "alcohol-free" : null,
@@ -107,7 +108,7 @@ const Checkboxes = (props) => {
       document.getElementById("vegan").checked = false;
       document.getElementById("vegetarian").checked = false;
       document.getElementById("wheatFree").checked = false;
-      // Specifically to change the states back to false
+      // Specifically to change the state properties back to false
       setUserProfile({
         alcoholFree: false,
         celeryFree: false,
